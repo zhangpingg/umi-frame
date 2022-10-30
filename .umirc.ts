@@ -21,4 +21,15 @@ export default defineConfig({
     slave: {},
   },
   headScripts: [`window.publicPath = "/xone/"`],
+  dva: {
+    hmr: true,
+  },
+  proxy: {
+    // 代理
+    '/common-api': {
+      target: 'http://10.1.2.345:8000/',
+      changeOrigin: true, // 是否把请求头中的 host 值设置成 target 值
+      pathRewrite: { '^/common-api': '' },
+    },
+  },
 });

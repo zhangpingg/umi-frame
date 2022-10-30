@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { add, reduce, updateUser } from '@/store/reducer/user';
 
-const PageB = () => {
+const UseRedux = () => {
   // useSelector 替代 mapStateToProps，从store中提取state数据
   // useDispatch 替代 mapDispatchToProps，从store中获取dispatch方法的引用
   const { age, info } = useSelector((state: any) => state?.publicRedux.USER);
@@ -35,4 +35,4 @@ const PageB = () => {
   );
 };
 
-export default PageB;
+export default UseRedux;

@@ -2,6 +2,7 @@ const Layouts = '@/layouts';
 const Index = '@/pages/index';
 const LocalResources = '@/pages/localResources';
 const UseRedux = '@/pages/useRedux';
+const UseDva = '@/pages/useDva';
 
 export default [
   {
@@ -20,6 +21,12 @@ export default [
         path: '/useRedux',
         title: '@reduxjs/toolkit',
         component: UseRedux,
+        exact: true,
+      },
+      {
+        path: '/useDva',
+        title: 'UseDva',
+        component: UseDva,
         exact: true,
       },
     ],
