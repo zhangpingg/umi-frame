@@ -21,9 +21,7 @@ export default defineConfig({
     slave: {},
   },
   headScripts: [`window.publicPath = "/xone/"`],
-  dva: {
-    hmr: true,
-  },
+  dva: {},
   proxy: {
     // 代理
     '/common-api': {

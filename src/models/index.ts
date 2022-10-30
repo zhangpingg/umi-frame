@@ -26,7 +26,7 @@ const model = {
         const res = { name: '李四', age: 22 };
         yield put({
           type: 'changeUser', // 调用reducers中的方法
-          payload: res, // 传入请求的数据
+          payload: res,
         });
         callback?.(res);
       } catch (e) {}
