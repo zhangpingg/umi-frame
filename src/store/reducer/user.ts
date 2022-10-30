@@ -13,6 +13,7 @@ const userSlice = createSlice({
   name: 'user', // 命名空间，在调用action的时候会默认的为：name/actionName
   initialState,
   reducers: {
+    // 同步修改数据
     // 第一个参数：当前的 state 数据
     // 第二个参数：{type:"", payload:<传进来的内容，可以是值，也可以是对象>}
     add(state) {
