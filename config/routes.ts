@@ -1,5 +1,6 @@
 const Layouts = '@/layouts';
 const Index = '@/pages/index';
+const Test = '@/pages/test';
 const LocalResources = '@/pages/localResources';
 const UseRedux = '@/pages/useRedux';
 const UseDva = '@/pages/useDva';
@@ -11,6 +12,7 @@ export default [
     routes: [
       { path: '/', redirect: '/index' },
       { path: '/index', component: Index, exact: true },
+      { path: '/test', component: Test, exact: true },
       {
         path: '/localResources',
         title: '本地资源',

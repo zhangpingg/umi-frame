@@ -9,6 +9,10 @@ const Index = () => {
 
   return (
     <div className={'global-box'}>
+      <Button type="link" onClick={() => jumpPage('test')}>
+        test
+      </Button>
+      <br />
       <Button type="link" onClick={() => jumpPage('localResources')}>
         本地静态资源
       </Button>{' '}

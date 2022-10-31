@@ -2,6 +2,7 @@ declare module '*.css';
 declare module '*.less';
 declare module '*.png';
 declare module 'react/jsx-runtime';
+declare module 'less-plugin-functions';
 declare module '*.svg' {
   export function ReactComponent(
     props: React.SVGProps<SVGSVGElement>,
