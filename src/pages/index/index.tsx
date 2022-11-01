@@ -25,6 +25,10 @@ const Index = () => {
         dva
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('useTableReducerDemo')}>
+        useTableReducer demo使用
+      </Button>
+      <br />
     </div>
   );
 };

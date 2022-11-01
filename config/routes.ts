@@ -4,6 +4,7 @@ const Test = '@/pages/test';
 const LocalResources = '@/pages/localResources';
 const UseRedux = '@/pages/useRedux';
 const UseDva = '@/pages/useDva';
+const UseTableReducerDemo = '@/pages/useTableReducerDemo';
 
 export default [
   {
@@ -21,14 +22,17 @@ export default [
       },
       {
         path: '/useRedux',
-        title: '@reduxjs/toolkit',
         component: UseRedux,
         exact: true,
       },
       {
         path: '/useDva',
-        title: 'UseDva',
         component: UseDva,
+        exact: true,
+      },
+      {
+        path: '/useTableReducerDemo',
+        component: UseTableReducerDemo,
         exact: true,
       },
     ],
