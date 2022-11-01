@@ -5,6 +5,7 @@ const LocalResources = '@/pages/localResources';
 const UseRedux = '@/pages/useRedux';
 const UseDva = '@/pages/useDva';
 const UseTableReducerDemo = '@/pages/useTableReducerDemo';
+const UseApi = '@/pages/useApi';
 
 export default [
   {
@@ -33,6 +34,11 @@ export default [
       {
         path: '/useTableReducerDemo',
         component: UseTableReducerDemo,
+        exact: true,
+      },
+      {
+        path: '/useApi',
+        component: UseApi,
         exact: true,
       },
     ],

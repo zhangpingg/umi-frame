@@ -1,6 +1,7 @@
 declare module '*.css';
 declare module '*.less';
 declare module '*.png';
+declare module '*.js';
 declare module 'react/jsx-runtime';
 declare module 'less-plugin-functions';
 declare module '*.svg' {

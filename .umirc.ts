@@ -2,6 +2,7 @@ import { defineConfig } from 'umi';
 import LessPluginFunctions from 'less-plugin-functions';
 import path from 'path';
 import routes from './config/routes';
+import proxy from './config/proxy';
 import WebpackChain from 'webpack-chain';
 
 // 重新配置less-loader，使其能够换肤
@@ -57,14 +58,7 @@ export default defineConfig({
   },
   headScripts: [`window.publicPath = "/xone/"`],
   dva: {},
-  proxy: {
-    // 代理
-    '/common-api': {
-      target: 'http://10.1.2.345:8000/',
-      changeOrigin: true, // 是否把请求头中的 host 值设置成 target 值
-      pathRewrite: { '^/common-api': '' },
-    },
-  },
+  proxy,
   extraBabelPlugins: [
     // 按需引入
     [

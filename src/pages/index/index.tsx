@@ -29,6 +29,10 @@ const Index = () => {
         useTableReducer demo使用
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('useApi')}>
+        调接口
+      </Button>
+      <br />
     </div>
   );
 };
