@@ -6,6 +6,7 @@ const UseRedux = '@/pages/useRedux';
 const UseDva = '@/pages/useDva';
 const UseTableReducerDemo = '@/pages/useTableReducerDemo';
 const UseApi = '@/pages/useApi';
+const CursorPosition = '@/pages/cursorPosition';
 
 export default [
   {
@@ -39,6 +40,11 @@ export default [
       {
         path: '/useApi',
         component: UseApi,
+        exact: true,
+      },
+      {
+        path: '/cursorPosition',
+        component: CursorPosition,
         exact: true,
       },
     ],

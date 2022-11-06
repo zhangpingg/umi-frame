@@ -33,6 +33,10 @@ const Index = () => {
         调接口
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('cursorPosition')}>
+        获取光标、设置光标、插入数据
+      </Button>
+      <br />
     </div>
   );
 };
