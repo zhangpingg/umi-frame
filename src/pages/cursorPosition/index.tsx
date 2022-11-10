@@ -27,6 +27,7 @@ const XoTest = () => {
   };
   /** 获取光标位置 */
   const getCursorPosition = () => {
+    // const inputNode = inputRef?.current?.input;  // 输入框
     const textAreaNode = textareaRef?.current?.resizableTextArea.textArea;
     const pStart = textAreaNode?.selectionStart; // 光标开始位置
     const pEnd = textAreaNode?.selectionEnd; // 光标结束位置
