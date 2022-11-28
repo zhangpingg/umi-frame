@@ -37,6 +37,10 @@ const Index = () => {
         获取光标、设置光标、插入数据
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('watermark')}>
+        水印
+      </Button>
+      <br />
     </div>
   );
 };

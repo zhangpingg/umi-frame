@@ -7,6 +7,7 @@ const UseDva = '@/pages/useDva';
 const UseTableReducerDemo = '@/pages/useTableReducerDemo';
 const UseApi = '@/pages/useApi';
 const CursorPosition = '@/pages/cursorPosition';
+const Watermark = '@/pages/watermark';
 
 export default [
   {
@@ -45,6 +46,11 @@ export default [
       {
         path: '/cursorPosition',
         component: CursorPosition,
+        exact: true,
+      },
+      {
+        path: '/watermark',
+        component: Watermark,
         exact: true,
       },
     ],
