@@ -41,6 +41,10 @@ const Index = () => {
         水印
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('responsiveGrid')}>
+        react-grid-layout 响应布局
+      </Button>
+      <br />
     </div>
   );
 };

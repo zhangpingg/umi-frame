@@ -8,6 +8,7 @@ const UseTableReducerDemo = '@/pages/useTableReducerDemo';
 const UseApi = '@/pages/useApi';
 const CursorPosition = '@/pages/cursorPosition';
 const Watermark = '@/pages/watermark';
+const ResponsiveGrid = '@/pages/responsiveGrid';
 
 export default [
   {
@@ -51,6 +52,11 @@ export default [
       {
         path: '/watermark',
         component: Watermark,
+        exact: true,
+      },
+      {
+        path: '/responsiveGrid',
+        component: ResponsiveGrid,
         exact: true,
       },
     ],
