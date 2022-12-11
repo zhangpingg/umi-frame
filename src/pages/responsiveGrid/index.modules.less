@@ -9,24 +9,20 @@
   overflow-y: scroll;
   .responsive-grid-container-main {
     margin-top: -10px;
-    .rgcm-item {
-      transition: all 200ms ease;
-      transition-property: transform;
-      .rgcm-item-content {
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        cursor: move;
-        border-radius: 3px;
-        background-color: #fff;
-        box-shadow: 0 4px 6px 0 rgb(31 31 31 / 5%),
-          0 0 2px 0 rgb(31 31 31 / 20%);
-        transition: box-shadow 0.2s ease;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        position: relative;
-      }
+    .rgcm-item-content {
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      cursor: move;
+      border-radius: 3px;
+      background-color: #fff;
+      box-shadow: 0 4px 6px 0 rgb(31 31 31 / 5%), 0 0 2px 0 rgb(31 31 31 / 20%);
+      transition: box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      position: relative;
+      border: 1px solid #ddd;
     }
   }
 }
