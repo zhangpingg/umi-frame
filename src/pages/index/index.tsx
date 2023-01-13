@@ -45,6 +45,10 @@ const Index = () => {
         react-grid-layout 响应布局
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('tableRoll')}>
+        table 内容自动滚动
+      </Button>
+      <br />
     </div>
   );
 };

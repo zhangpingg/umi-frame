@@ -9,6 +9,7 @@ const UseApi = '@/pages/useApi';
 const CursorPosition = '@/pages/cursorPosition';
 const Watermark = '@/pages/watermark';
 const ResponsiveGrid = '@/pages/responsiveGrid';
+const TableRoll = '@/pages/tableRoll';
 
 export default [
   {
@@ -57,6 +58,11 @@ export default [
       {
         path: '/responsiveGrid',
         component: ResponsiveGrid,
+        exact: true,
+      },
+      {
+        path: '/tableRoll',
+        component: TableRoll,
         exact: true,
       },
     ],
