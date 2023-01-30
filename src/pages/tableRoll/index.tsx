@@ -52,8 +52,8 @@ const TableRoll = () => {
   //     setBodyHeight(clientHeight);
   //   }
   // }
-  /** 滚动事件 */
-  const scrollFn = () => {
+  /** 定时器滚动事件 */
+  const scrollFn1 = () => {
     if (tableRef && tableRef.current) {
       const tableBodyDom =
         tableRef.current.querySelectorAll('.zp-ant-table-body')[0];
@@ -66,13 +66,40 @@ const TableRoll = () => {
           // 2秒后才执行滚动
           timerTimeout = setTimeout(() => {
             tableBodyDom.scrollTop = 0;
-            scrollFn();
+            scrollFn1();
             clearInterval(timerTimeout);
           }, 2000);
         }
       }, 500);
     }
   };
+  const scrollEle = document.querySelector('.zp-ant-table-body');
+  /** 帧滚动事件 */
+  const scrollFn2 = () => {
+    const scrollSpeed = 1; // 滚动速度：一帧滚动距离（单位：像素）
+    if (scrollEle) {
+      let scrolledDistance = 0;
+      const { clientHeight, scrollHeight } = scrollEle;
+      console.log(11, clientHeight);
+      console.log(22, scrollHeight);
+      const maxScrollTop = scrollHeight - clientHeight;
+      // 自动滚动
+      const autoScroll = () => {
+        scrolledDistance = Math.min(
+          scrolledDistance + scrollSpeed,
+          maxScrollTop,
+        ); // 超过最大滚动距离,以最大滚动距离为准
+        if (scrolledDistance >= maxScrollTop) {
+          scrolledDistance = 0; // 滚动到顶部
+        }
+        scrollEle.scrollTop = scrolledDistance;
+        window.requestAnimationFrame(autoScroll);
+      };
+      window.requestAnimationFrame(autoScroll);
+    }
+  };
+  /** 帧滚动 */
+  // scrollFn2()
 
   useEffect(() => {
     getDataList();
@@ -88,8 +115,12 @@ const TableRoll = () => {
         scroll={{ y: 100 }}
         ref={tableRef}
       />
-      <Button type="primary" onClick={scrollFn}>
-        滚动
+      <Button type="primary" onClick={scrollFn1}>
+        定时器滚动
+      </Button>{' '}
+      <br />
+      <Button type="primary" onClick={scrollFn2}>
+        帧滚动
       </Button>
     </div>
   );
