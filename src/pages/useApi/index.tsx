@@ -1,11 +1,12 @@
 import React, { useCallback } from 'react';
 import { Button } from 'antd';
-import { getPublicInfo } from '@/api';
+import { getData } from '@/api';
 
 const UseApi = () => {
   const fn1 = useCallback(async () => {
-    const res = await getPublicInfo({});
-    console.log(res);
+    const controller = new AbortController();
+    const res = await getData({ a: 1, b: 2 });
+    console.log('数据: ', res);
   }, []);
 
   return (

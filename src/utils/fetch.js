@@ -86,7 +86,7 @@ const getTokenHeaders = () => {
  * @param headers
  * @returns Promise<any>
  */
-function get(url, params, headers = getTokenHeaders()) {
+function get(url, params, headers = getTokenHeaders(), signal) {
   let requestUrl;
   if (params) {
     const paramsString = Object.keys(params)
@@ -100,6 +100,7 @@ function get(url, params, headers = getTokenHeaders()) {
   const promise = fetch(getUrl(requestUrl), {
     method: 'GET',
     headers,
+    signal,
   });
   return handleError(promise);
 }
