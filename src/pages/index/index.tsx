@@ -49,6 +49,10 @@ const Index = () => {
         table 内容自动滚动
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('antv')}>
+        antv 图表
+      </Button>
+      <br />
     </div>
   );
 };
