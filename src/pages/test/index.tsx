@@ -17,7 +17,7 @@ const ResponsiveGrid = () => {
     const a = 1;
     console.log(b);
 
-    const c:string = 2;
+    const c: string = 2;
     console.log(d);
   }, []);
 
