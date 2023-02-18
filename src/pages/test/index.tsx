@@ -16,6 +16,9 @@ const ResponsiveGrid = () => {
   useEffect(() => {
     const a = 1;
     console.log(b);
+
+    const c:string = 2;
+    console.log(d);
   }, []);
 
   return (
