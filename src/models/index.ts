@@ -1,5 +1,4 @@
-import * as api from '@/api';
-
+// import * as api from '@/api'; 32
 const model = {
   namespace: 'global',
   state: {
@@ -20,7 +19,8 @@ const model = {
   // 异步修改数据
   effects: {
     // 调用接口获取用户信息
-    *getUser({ payload, callback }: any, { call, put }: any): any {
+    // { payload, callback }:any, { call, put }: any
+    *getUser({ callback }: any, { put }: any): any {
       try {
         // const res = yield call(api.getSystemUser, payload);     // payload: 接口参数
         const res = { name: '李四', age: 22 };
@@ -29,7 +29,9 @@ const model = {
           payload: res,
         });
         callback?.(res);
-      } catch (e) {}
+      } catch (e) {
+        // console.log(e);
+      }
     },
   },
 };

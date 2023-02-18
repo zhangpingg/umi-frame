@@ -5,20 +5,19 @@
 // 简书：https://www.jianshu.com/p/001df1e5772e（建议）
 // code例子：https://codesandbox.io/s/5wy3rz5z1x?module=/src/ShowcaseLayout.js&file=/src/ShowcaseLayout.js
 
-import React, { useMemo } from 'react';
 import GridLayout from 'react-grid-layout';
 import './grid-base.less';
 import style from './index.modules.less';
 
 const ResponsiveGrid = () => {
   /** 布局：第一种布局方式 */
-  const layout = useMemo(() => {
-    return [
-      { i: 'a', x: 0, y: 0, w: 1, h: 2, static: true },
-      { i: 'b', x: 1, y: 0, w: 3, h: 2, minW: 2, maxW: 4, isDraggable: false },
-      { i: 'c', x: 4, y: 0, w: 1, h: 2, isResizable: false },
-    ];
-  }, []);
+  // const layout = useMemo(() => {
+  //   return [
+  //     { i: 'a', x: 0, y: 0, w: 1, h: 2, static: true },
+  //     { i: 'b', x: 1, y: 0, w: 3, h: 2, minW: 2, maxW: 4, isDraggable: false },
+  //     { i: 'c', x: 4, y: 0, w: 1, h: 2, isResizable: false },
+  //   ];
+  // }, []);
   /** 拖拽盒子位置结束后事件 */
   const onDragStop = (list: any[], itemStart: any, itemEnd: any) => {
     console.log(11, list);

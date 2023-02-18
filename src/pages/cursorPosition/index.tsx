@@ -1,4 +1,4 @@
-import React, { useRef, useState, useCallback } from 'react';
+import { useRef, useState, useCallback } from 'react'; // 1
 import { Input, Button } from 'antd';
 
 interface cursorPositionObjProps {

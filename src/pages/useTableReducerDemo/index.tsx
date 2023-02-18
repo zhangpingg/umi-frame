@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import { Button, Spin } from 'antd';
 import useTableReducer from '@/hooks/useTableReducer';
 

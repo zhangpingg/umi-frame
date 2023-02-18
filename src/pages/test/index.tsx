@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import GridLayout from 'react-grid-layout';
 import './grid-base.less';
 import style from './index.modules.less';

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 import svgEmail from '@/images/email.svg';
 import styles from './index.modules.less';
 
