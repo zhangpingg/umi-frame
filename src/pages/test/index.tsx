@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import GridLayout from 'react-grid-layout';
 import './grid-base.less';
 import style from './index.modules.less';
@@ -11,6 +11,11 @@ const ResponsiveGrid = () => {
       { i: 'b', x: 1, y: 0, w: 3, h: 2, minW: 2, maxW: 4 },
       { i: 'c', x: 4, y: 0, w: 1, h: 2 },
     ];
+  }, []);
+
+  useEffect(() => {
+    const a = 1;
+    console.log(b);
   }, []);
 
   return (
