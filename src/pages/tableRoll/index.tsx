@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Table, Button } from 'antd';
 import { dataList } from './const';
 
@@ -30,7 +30,7 @@ const TableRoll = () => {
   ];
   /** 模拟接口 */
   const apiFn = () => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       setTimeout(() => {
         resolve(dataList);
       }, 1000);
@@ -58,8 +58,8 @@ const TableRoll = () => {
       const tableBodyDom =
         tableRef.current.querySelectorAll('.zp-ant-table-body')[0];
       timerInterval = setInterval(() => {
-        let oldVal = tableBodyDom.scrollTop;
-        let newVal = oldVal + 5;
+        const oldVal = tableBodyDom.scrollTop;
+        const newVal = oldVal + 5;
         tableBodyDom.scrollTop = newVal;
         if (oldVal == tableBodyDom.scrollTop) {
           clearInterval(timerInterval);

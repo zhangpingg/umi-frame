@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Pie } from '@antv/g2plot';
 
 const PiePlot = () => {

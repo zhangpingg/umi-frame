@@ -1,4 +1,3 @@
-import React from 'react';
 import PiePlot from './piePlot';
 
 const Antv = () => {
