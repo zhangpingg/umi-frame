@@ -66,7 +66,16 @@ const EditableCell = ({
   // 是可编辑单元格
   if (editable) {
     childNode = editing ? (
-      <Form.Item style={{ margin: 0 }} name={dataIndex}>
+      <Form.Item
+        style={{ margin: 0 }}
+        name={dataIndex}
+        rules={[
+          {
+            required: true,
+            message: `Please Input ${title}!`,
+          },
+        ]}
+      >
         <InputNumber
           min={0}
           max={10000}
@@ -136,7 +145,7 @@ const EditCell = () => {
     newData.splice(index, 1, { ...item, ...row });
     setDataSource(newData);
   });
-  /** 转换columns */
+  /** 转换列表头 */
   const transformColumns = useCallback(() => {
     const columnX = initColumns.map((col) => {
       if (!col.editable) {
@@ -148,9 +157,9 @@ const EditCell = () => {
         onCell: (record: any) => {
           return {
             record,
-            editable: col.editable,
             dataIndex: col.dataIndex,
             title: col.title,
+            editable: col.editable,
             handleSave: handleSave,
           };
         },
@@ -176,6 +185,7 @@ const EditCell = () => {
 
   return (
     <div>
+      <h2>编辑单元格</h2>
       <Button onClick={addData}>添加</Button>
       <Table
         components={components}
