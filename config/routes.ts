@@ -1,5 +1,5 @@
 const Layouts = '@/layouts';
-const Index = '@/pages/index';
+const Home = '@/pages/home';
 const Test = '@/pages/test';
 const LocalResources = '@/pages/localResources';
 const UseRedux = '@/pages/useRedux';
@@ -11,14 +11,15 @@ const Watermark = '@/pages/watermark';
 const ResponsiveGrid = '@/pages/responsiveGrid';
 const TableRoll = '@/pages/tableRoll';
 const Antv = '@/pages/antv';
+const Antd = '@/pages/antd';
 
 export default [
   {
     path: '/',
     component: Layouts,
     routes: [
-      { path: '/', redirect: '/index' },
-      { path: '/index', component: Index, exact: true },
+      { path: '/', redirect: '/home' },
+      { path: '/home', component: Home, exact: true },
       { path: '/test', component: Test, exact: true },
       {
         path: '/localResources',
@@ -69,6 +70,11 @@ export default [
       {
         path: '/antv',
         component: Antv,
+        exact: true,
+      },
+      {
+        path: '/antd',
+        component: Antd,
         exact: true,
       },
     ],
