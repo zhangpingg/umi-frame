@@ -3,42 +3,15 @@ import useTableReducer from '@/hooks/useTableReducer';
 
 const UseTableReducerDemo = () => {
   const [{ isLoading, data, total, pageIndex, pageSize, params }, dispatch] =
-    useTableReducer(20);
+    useTableReducer({
+      data: [],
+      pageIndex: 1,
+      pageSize: 20,
+      isLoading: false,
+      total: 0,
+      params: {},
+    });
 
-  /** 打开loading */
-  const loadingFn = () => {
-    dispatch({ type: 'LOADING' });
-  };
-  /** 成功 */
-  const successFn = () => {
-    dispatch({
-      type: 'SUCCESS',
-      payload: {
-        data: [{ a: 1, b: 2 }],
-      },
-    });
-  };
-  /** 失败 */
-  const errorFn = () => {
-    dispatch({ type: 'ERROR' });
-  };
-  /** 改变数据 */
-  const changeDataFn = () => {
-    dispatch({
-      type: 'CHANGE_DATA',
-      payload: {
-        data: [{ a: 3, b: 4 }],
-      },
-    });
-  };
-  /** 关闭 loading */
-  const closeLoadingFn = () => {
-    dispatch({ type: 'CLOSE_LOADING' });
-  };
-  /** 清空数据 */
-  const clearFn = () => {
-    dispatch({ type: 'CLEAR' });
-  };
   /** 模拟接口 */
   const ApiFn = (params: any) => {
     console.log('参数:', params);
@@ -54,8 +27,8 @@ const UseTableReducerDemo = () => {
       }, 2000);
     });
   };
-  /** 查询 */
-  const searchFn = async (conditionParams: any) => {
+  /** 获取数据 */
+  const getData = async (conditionParams?: any) => {
     try {
       dispatch({ type: 'LOADING' }); // 打开loading
       const res: any = await ApiFn({
@@ -80,13 +53,26 @@ const UseTableReducerDemo = () => {
       dispatch({ type: 'CLOSE_LOADING' });
     }
   };
+  /** 查询 */
+  const searchFn = async () => {
+    getData();
+  };
+  /** 重置 */
+  const resetFn = () => {
+    getData({
+      pageIndex: 1,
+      pageSize: 20,
+      c: undefined,
+      d: undefined,
+    });
+  };
   /** 条件查询 */
   const conditionSearchFn = () => {
-    searchFn({ c: 1, d: 2 });
+    getData({ c: 1, d: 2 });
   };
   /** 分页查询 */
   const pageSearchFn = () => {
-    searchFn({ pageIndex: 2, pageSize: 3 });
+    getData({ pageIndex: 2, pageSize: 3 });
   };
 
   return (
@@ -103,34 +89,12 @@ const UseTableReducerDemo = () => {
         </div>
       </Spin>
 
-      <Button type="primary" onClick={loadingFn}>
-        打开loading
-      </Button>
-      <br />
-      <Button type="primary" onClick={successFn}>
-        成功（存数据）
-      </Button>
-      <br />
-      <Button type="primary" onClick={errorFn}>
-        失败
-      </Button>
-      <br />
-      <Button type="primary" onClick={changeDataFn}>
-        改变数据（单纯的改变data）
-      </Button>
-      <br />
-      <Button type="primary" onClick={closeLoadingFn}>
-        关闭 loading
-      </Button>
-      <br />
-      <Button type="primary" onClick={clearFn}>
-        清空数据
-      </Button>
-      <br />
-      <br />
-
       <Button type="primary" onClick={searchFn}>
         查询
+      </Button>
+      <br />
+      <Button type="primary" onClick={resetFn}>
+        重置
       </Button>
       <br />
       <Button type="primary" onClick={conditionSearchFn}>
