@@ -1,5 +1,5 @@
 import { Button, Spin } from 'antd';
-import useTableReducer from '@/hooks/useTableReducer';
+import { useTableReducer } from '@/hooks';
 
 const UseTableReducerDemo = () => {
   const [{ isLoading, data, total, pageIndex, pageSize, params }, dispatch] =

@@ -5,6 +5,7 @@ const LocalResources = '@/pages/localResources';
 const UseRedux = '@/pages/useRedux';
 const UseDva = '@/pages/useDva';
 const UseTableReducerDemo = '@/pages/useTableReducerDemo';
+const UseSetIntervalDemo = '@/pages/useSetIntervalDemo';
 const UseApi = '@/pages/useApi';
 const CursorPosition = '@/pages/cursorPosition';
 const Watermark = '@/pages/watermark';
@@ -35,6 +36,11 @@ export default [
       {
         path: '/useDva',
         component: UseDva,
+        exact: true,
+      },
+      {
+        path: '/useSetIntervalDemo',
+        component: UseSetIntervalDemo,
         exact: true,
       },
       {
