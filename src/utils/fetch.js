@@ -2,23 +2,22 @@ import fetch from 'isomorphic-fetch';
 import { message } from 'antd';
 
 const BASE_URL = '';
-// content-type
+// 内容类型
 const ContentType = {
   JSON: 'application/json; charset=UTF-8',
   FORM: 'application/x-www-form-urlencoded; charset=UTF-8',
 };
 
-// common check
+/** 检查返回内容的状态码 */
 const checkStatus = (response, type) => {
-  if (response.status === 204) return response;
-  if ([200, 201, 202].includes(response.status)) {
+  const { status } = response;
+  if (status === 204) return response; // 服务器已成功处理了请求，但未返回任何内容
+  if ([200, 201, 202].includes(status)) {
     if (type === 'file') {
       return response;
     }
     return response.json();
   }
-  // throw new Error(response.status)
-  const { status } = response;
   const pureResponse = response.json();
   if (type !== 'ignore') {
     if ([400, 500].includes(status)) {
@@ -57,36 +56,34 @@ const checkStatus = (response, type) => {
   return Promise.reject(pureResponse);
 };
 
-// common error
+/** 接口返回的内容统一处理 */
 const handleError = (promise) =>
   promise
     .then((response) => checkStatus(response))
     .catch((err) => Promise.reject(err));
 
-// handle url
+/** 获取接口url */
 const getUrl = (url) => {
   if (url.startsWith('http://') || url.startsWith('https://')) return url;
   return `${BASE_URL}${url}`;
 };
 
-// token header
-const getTokenHeaders = () => {
-  // TODO get the token permission request
-  const token = localStorage.getItem('user_token');
+/** 获取请求头 */
+const getRequestHeaders = () => {
   return {
-    Accept: ContentType.JSON,
-    'Content-Type': ContentType.JSON,
-    Token: token,
+    Accept: ContentType.JSON, // 客户端支持的数据类型
+    'Content-Type': ContentType.JSON, // 客户端发送的数据类型
+    Token: localStorage.getItem('user_token'),
   };
 };
 
 /** GET请求
- * @param url: string
+ * @param url
  * @param params
  * @param headers
  * @returns Promise<any>
  */
-function get(url, params, headers = getTokenHeaders(), signal) {
+function get(url, params, headers = getRequestHeaders(), signal) {
   let requestUrl;
   if (params) {
     const paramsString = Object.keys(params)
@@ -111,7 +108,7 @@ function get(url, params, headers = getTokenHeaders(), signal) {
  * @param headers
  * @returns Promise<any>
  * */
-function post(url, params, headers = getTokenHeaders()) {
+function post(url, params, headers = getRequestHeaders()) {
   const promise = fetch(getUrl(url), {
     method: 'POST',
     headers,
@@ -127,21 +124,14 @@ function post(url, params, headers = getTokenHeaders()) {
  * @param headers
  * @returns Promise<any>
  * */
-function postIgnore(url, params, headers = getTokenHeaders()) {
+function postIgnore(url, params, headers = getRequestHeaders()) {
   const promise = fetch(getUrl(url), {
     method: 'POST',
     headers,
     mode: 'cors',
     body: JSON.stringify(params),
   });
-  return promise
-    .then((response) => checkStatus(response, 'ignore'))
-    .catch((err) => {
-      // err.then((e) => {
-      //   message.error(e.message || e.msg || '未知异常！');
-      // });
-      Promise.reject(err);
-    });
+  return handleError(promise);
 }
 
 /** * POST form 请求
@@ -150,7 +140,7 @@ function postIgnore(url, params, headers = getTokenHeaders()) {
  * @param headers
  * @returns Promise<any>
  * */
-function postForm(url, params, headers = getTokenHeaders()) {
+function postForm(url, params, headers = getRequestHeaders()) {
   const promise = fetch(getUrl(url), {
     method: 'POST',
     headers: {
@@ -168,23 +158,21 @@ function postForm(url, params, headers = getTokenHeaders()) {
  * @param headers
  * @returns Promise<any>
  * */
-function postFile(url, params, headers = getTokenHeaders()) {
+function postFile(url, params, headers = getRequestHeaders()) {
   const promise = fetch(getUrl(url), {
     method: 'POST',
     headers,
     mode: 'cors',
     body: JSON.stringify(params),
   });
-  return promise
-    .then((response) => checkStatus(response, 'file'))
-    .catch((err) => Promise.reject(err));
+  return handleError(promise, 'file');
 }
 /** * delete 请求文件
  * @param url
  * @param headers
  * @returns Promise<any>
  * */
-function Delete(url, params, headers = getTokenHeaders()) {
+function Delete(url, params, headers = getRequestHeaders()) {
   let requestUrl;
   if (params) {
     const paramsString = Object.keys(params)
@@ -207,7 +195,7 @@ function Delete(url, params, headers = getTokenHeaders()) {
  * @param headers
  * @returns Promise<any>
  */
-function getDownFiles(url, params, headers = getTokenHeaders()) {
+function getDownFiles(url, params, headers = getRequestHeaders()) {
   let requestUrl;
   if (params) {
     const paramsString = Object.keys(params)
@@ -222,9 +210,7 @@ function getDownFiles(url, params, headers = getTokenHeaders()) {
     method: 'GET',
     headers,
   });
-  return promise
-    .then((response) => checkStatus(response, 'file'))
-    .catch((err) => Promise.reject(err));
+  return handleError(promise, 'file');
 }
 
 /** * POST 请求文件
@@ -233,16 +219,14 @@ function getDownFiles(url, params, headers = getTokenHeaders()) {
  * @param headers
  * @returns Promise<any>
  * */
-function postDownFile(url, params, headers = getTokenHeaders()) {
+function postDownFile(url, params, headers = getRequestHeaders()) {
   const promise = fetch(getUrl(url), {
     method: 'POST',
     headers,
     mode: 'cors',
     body: JSON.stringify(params),
   });
-  return promise
-    .then((response) => checkStatus(response, 'file'))
-    .catch((err) => Promise.reject(err));
+  return handleError(promise, 'file');
 }
 
 export {
@@ -250,7 +234,7 @@ export {
   post,
   postForm,
   postFile,
-  getTokenHeaders,
+  getRequestHeaders,
   postIgnore,
   Delete,
   getDownFiles,
