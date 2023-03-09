@@ -13,6 +13,7 @@ const ResponsiveGrid = '@/pages/responsiveGrid';
 const TableRoll = '@/pages/tableRoll';
 const Antv = '@/pages/antv';
 const Antd = '@/pages/antd';
+const SkinTheme = '@/pages/skinTheme';
 
 export default [
   {
@@ -81,6 +82,11 @@ export default [
       {
         path: '/antd',
         component: Antd,
+        exact: true,
+      },
+      {
+        path: '/skinTheme',
+        component: SkinTheme,
         exact: true,
       },
     ],

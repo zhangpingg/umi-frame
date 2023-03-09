@@ -1,12 +1,12 @@
 import { Button } from 'antd';
 import styles from './index.module.less';
 
-const Test = () => {
+const SkinTheme = () => {
   return (
-    <div className={styles['test']}>
+    <div className={styles['skinTheme']}>
       <Button type='primary'>按钮</Button>
     </div>
   );
 };
 
-export default Test;
+export default SkinTheme;

@@ -2,6 +2,7 @@ import { Provider } from 'react-redux';
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/lib/locale/zh_CN';
 import store from './store';
+import './styles/common.less';
 import styles from './index.modules.less';
 
 // 对 message，modal，Notification 组件的前缀需要单独配置

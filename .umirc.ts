@@ -20,6 +20,9 @@ const LessLoaderConfig = (config: WebpackChain) => {
       modifyVars: {
         'ant-prefix': 'zp-ant',
         'font-size-base': '12px',
+        hack: `true; @import (reference) "${path.resolve(
+          'src/styles/antdOverride/index.less',
+        )}";`,
       },
       javascriptEnabled: true,
       plugins: [new LessPluginFunctions({ alwaysOverride: true })],

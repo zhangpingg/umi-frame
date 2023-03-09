@@ -61,6 +61,10 @@ const Home = () => {
         antd
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('skinTheme')}>
+        换肤
+      </Button>
+      <br />
     </div>
   );
 };
