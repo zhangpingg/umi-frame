@@ -1,4 +1,4 @@
 {
   "documentTitle": "浏览器标题",
-  "reLoginTime": "重新登录时间"
+  "reLoginTime": 10000
 }

@@ -12,13 +12,18 @@ const getPublicInfo = (params: any) => {
   return post(`${ipoPrefix}/templateManager/qryInstitutionInfo`, params);
 };
 
-const getData = (params: any, signal?: any) => {
-  return get(
-    'https://unidemo.dcloud.net.cn/api/news',
-    params,
-    undefined,
-    signal,
-  );
+const getData = () => {
+  return fetch.get('https://unidemo.dcloud.net.cn/api/news');
 };
+// const getData = (params: any, signal?: any) => {
+//   return get(
+//     'https://unidemo.dcloud.net.cn/api/news',
+//     params,
+//     undefined,
+//     signal,
+//   );
+// };
+// const controller = new AbortController();
+// const res = await getData({ a: 1, b: 2 }, controller?.signal);
 
 export { getSystemUser, getPublicInfo, getData };
