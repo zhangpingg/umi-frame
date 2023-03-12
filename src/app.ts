@@ -3,7 +3,8 @@ export const qiankun = {
   async bootstrap(props: any) {
     console.log('第一次进入子应用，存储一些全部变量', props);
     // 获取本地配置文件
-    await fetch('/xone/config.json')
+    await window
+      .fetch('/xone/config.json')
       .then((response) => response.json())
       .then((res) => {
         window.$webConfig = res;
