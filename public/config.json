@@ -1,11 +1,4 @@
 {
-  "isShowMenuAction": false,
-  "productTitle": "产品",
-  "urlPrefix": "xcvone",
-  "isDatePicker": true,
-  "isShowFooter": true,
-  "isShowSearchEngine": false,
-  "buttonVisible": true,
-  "noDist": false,
-  "isNewUI": true
+  "documentTitle": "浏览器标题",
+  "reLoginTime": "重新登录时间"
 }

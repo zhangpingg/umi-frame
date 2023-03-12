@@ -12,7 +12,7 @@ const getPublicInfo = (params: any) => {
   return post(`${ipoPrefix}/templateManager/qryInstitutionInfo`, params);
 };
 
-const getData = (params: any, signal: any) => {
+const getData = (params: any, signal?: any) => {
   return get(
     'https://unidemo.dcloud.net.cn/api/news',
     params,
