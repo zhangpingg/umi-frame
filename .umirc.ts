@@ -46,8 +46,8 @@ export default defineConfig({
     type: 'none',
   },
   title: '标题',
-  publicPath: '/xone/',
-  favicon: '/xone/favicon.png',
+  publicPath: '/xone-app1/',
+  favicon: '/xone-app1/favicon.png',
   base: '/',
   routes: routes,
   fastRefresh: {}, // 快速刷新
@@ -59,7 +59,7 @@ export default defineConfig({
   qiankun: {
     slave: {},
   },
-  headScripts: [`window.publicPath = "/xone/"`],
+  headScripts: [`window.publicPath = "/xone-app1/"`],
   dva: {},
   proxy,
   extraBabelPlugins: [
