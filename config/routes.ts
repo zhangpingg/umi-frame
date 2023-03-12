@@ -14,6 +14,7 @@ const TableRoll = '@/pages/tableRoll';
 const Antv = '@/pages/antv';
 const Antd = '@/pages/antd';
 const SkinTheme = '@/pages/skinTheme';
+const PerformanceObserverDemo = '@/pages/performanceObserverDemo';
 
 export default [
   {
@@ -87,6 +88,11 @@ export default [
       {
         path: '/skinTheme',
         component: SkinTheme,
+        exact: true,
+      },
+      {
+        path: '/performanceObserverDemo',
+        component: PerformanceObserverDemo,
         exact: true,
       },
     ],

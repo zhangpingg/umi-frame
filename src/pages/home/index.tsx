@@ -65,6 +65,10 @@ const Home = () => {
         换肤
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('performanceObserverDemo')}>
+        PerformanceObserver 监听请求资源
+      </Button>
+      <br />
     </div>
   );
 };
