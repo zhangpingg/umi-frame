@@ -1,4 +1,4 @@
-# umi project: 公司介绍
+# 微前端子应用(umi): 功能介绍
 
 ```bash
 请求本地资源 config.json

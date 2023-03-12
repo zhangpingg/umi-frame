@@ -15,7 +15,7 @@ const UseTableReducerDemo = () => {
   /** 模拟接口 */
   const ApiFn = (params: any) => {
     console.log('参数:', params);
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       setTimeout(() => {
         const res = {
           pageIndex: params.pageIndex,
