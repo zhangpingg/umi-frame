@@ -15,4 +15,5 @@ declare module '*.svg' {
 interface Window {
   $webConfig?: any;
   $timer?: any;
+  $store?: any;
 }

@@ -69,6 +69,10 @@ const Home = () => {
         PerformanceObserver 监听请求资源
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('frameStoreData')}>
+        获取基座的缓存数
+      </Button>
+      <br />
     </div>
   );
 };

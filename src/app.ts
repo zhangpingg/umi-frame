@@ -1,7 +1,7 @@
 export const qiankun = {
-  // 应用加载之前
+  // 应用加载之前: 第一次进入子应用，存储一些全部变量
   async bootstrap(props: any) {
-    console.log('第一次进入子应用，存储一些全部变量', props);
+    console.log('app1(xone) bootstrap', props);
     // 获取本地配置文件
     await window
       .fetch('/xone/config.json')
@@ -12,8 +12,8 @@ export const qiankun = {
   },
   // 应用 render 之前触发
   async mount(props: any) {
-    console.log('mount', props);
-    // window.tabs = props.tabs;
+    console.log('app1(xone) mount', props);
+    window.$store = props.store;
   },
   // 应用卸载之后触发
   async unmount(props: any) {

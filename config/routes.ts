@@ -15,6 +15,7 @@ const Antv = '@/pages/antv';
 const Antd = '@/pages/antd';
 const SkinTheme = '@/pages/skinTheme';
 const PerformanceObserverDemo = '@/pages/performanceObserverDemo';
+const FrameStoreData = '@/pages/frameStoreData';
 
 export default [
   {
@@ -93,6 +94,11 @@ export default [
       {
         path: '/performanceObserverDemo',
         component: PerformanceObserverDemo,
+        exact: true,
+      },
+      {
+        path: '/frameStoreData',
+        component: FrameStoreData,
         exact: true,
       },
     ],
