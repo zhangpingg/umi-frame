@@ -17,7 +17,7 @@ const UseTableReducerDemo = () => {
     console.log('参数:', params);
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        let res = {
+        const res = {
           pageIndex: params.pageIndex,
           pageSize: params.pageSize,
           records: [{ a: 1 }, { a: 2 }],
@@ -78,8 +78,10 @@ const UseTableReducerDemo = () => {
   return (
     <div>
       <Spin spinning={isLoading}>
-        <div style={{ height: '100px', border: '1px solid #000' }}>
-          表格数据：{JSON.stringify(data)} <br />
+        <div style={{ border: '1px solid #000' }}>
+          params: 详见控制台打印 <br />
+          表格 <br />
+          data: {JSON.stringify(data)} <br />
           total: {total}
           <br />
           pageIndex: {pageIndex}
