@@ -73,6 +73,10 @@ const Home = () => {
         获取基座的缓存数
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('memoDemo')}>
+        memo 例子
+      </Button>
+      <br />
     </div>
   );
 };

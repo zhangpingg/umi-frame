@@ -16,6 +16,7 @@ const Antd = '@/pages/antd';
 const SkinTheme = '@/pages/skinTheme';
 const PerformanceObserverDemo = '@/pages/performanceObserverDemo';
 const FrameStoreData = '@/pages/frameStoreData';
+const MemoDemo = '@/pages/memoDemo';
 
 export default [
   {
@@ -99,6 +100,11 @@ export default [
       {
         path: '/frameStoreData',
         component: FrameStoreData,
+        exact: true,
+      },
+      {
+        path: '/memoDemo',
+        component: MemoDemo,
         exact: true,
       },
     ],

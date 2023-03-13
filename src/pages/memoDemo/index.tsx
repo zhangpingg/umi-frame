@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Child1 from './child1';
 import Child2 from './child2';
 
-const Test = () => {
+const Index = () => {
   const [num1, setNum1] = useState(0);
   const [num2, setNum2] = useState(0);
 
@@ -23,4 +23,4 @@ const Test = () => {
   );
 };
 
-export default Test;
+export default Index;
