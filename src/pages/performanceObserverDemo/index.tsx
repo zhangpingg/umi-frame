@@ -3,6 +3,7 @@ import { Button } from 'antd';
 import { history } from 'umi';
 import { getData } from '@/api';
 
+/** 建议：基座layouts组件中使用 */
 const Index = () => {
   const fn1 = useCallback(async () => {
     const res = await getData();
