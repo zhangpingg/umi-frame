@@ -1,104 +1,85 @@
-const Layouts = '@/layouts';
-const Home = '@/pages/home';
-const Test = '@/pages/test';
-const LocalResources = '@/pages/localResources';
-const UseRedux = '@/pages/useRedux';
-const UseDva = '@/pages/useDva';
-const UseTableReducerDemo = '@/pages/useTableReducerDemo';
-const UseSetIntervalDemo = '@/pages/useSetIntervalDemo';
-const UseApi = '@/pages/useApi';
-const CursorPosition = '@/pages/cursorPosition';
-const Watermark = '@/pages/watermark';
-const ResponsiveGrid = '@/pages/responsiveGrid';
-const TableRoll = '@/pages/tableRoll';
-const Antv = '@/pages/antv';
-const Antd = '@/pages/antd';
-const SkinTheme = '@/pages/skinTheme';
-const PerformanceObserverDemo = '@/pages/performanceObserverDemo';
-const FrameStoreData = '@/pages/frameStoreData';
-
 export default [
   {
     path: '/',
-    component: Layouts,
+    component: '@/layouts',
     routes: [
       { path: '/', redirect: '/home' },
-      { path: '/home', component: Home, exact: true },
-      { path: '/test', component: Test, exact: true },
+      { path: '/home', component: '@/pages/home', exact: true },
+      { path: '/test', component: '@/pages/test', exact: true },
       {
         path: '/localResources',
         title: '本地资源',
-        component: LocalResources,
+        component: '@/pages/localResources',
         exact: true,
       },
       {
         path: '/useRedux',
-        component: UseRedux,
+        component: '@/pages/useRedux',
         exact: true,
       },
       {
         path: '/useDva',
-        component: UseDva,
+        component: '@/pages/useDva',
         exact: true,
       },
       {
         path: '/useSetIntervalDemo',
-        component: UseSetIntervalDemo,
+        component: '@/pages/useSetIntervalDemo',
         exact: true,
       },
       {
         path: '/useTableReducerDemo',
-        component: UseTableReducerDemo,
+        component: '@/pages/useTableReducerDemo',
         exact: true,
       },
       {
         path: '/useApi',
-        component: UseApi,
+        component: '@/pages/useApi',
         exact: true,
       },
       {
         path: '/cursorPosition',
-        component: CursorPosition,
+        component: '@/pages/cursorPosition',
         exact: true,
       },
       {
         path: '/watermark',
-        component: Watermark,
+        component: '@/pages/watermark',
         exact: true,
       },
       {
         path: '/responsiveGrid',
-        component: ResponsiveGrid,
+        component: '@/pages/responsiveGrid',
         exact: true,
       },
       {
         path: '/tableRoll',
-        component: TableRoll,
+        component: '@/pages/tableRoll',
         exact: true,
       },
       {
         path: '/antv',
-        component: Antv,
+        component: '@/pages/antv',
         exact: true,
       },
       {
         path: '/antd',
-        component: Antd,
+        component: '@/pages/antd',
         exact: true,
       },
       {
         path: '/skinTheme',
-        component: SkinTheme,
+        component: '@/pages/skinTheme',
         exact: true,
       },
       {
         path: '/performanceObserverDemo',
-        component: PerformanceObserverDemo,
+        component: '@/pages/performanceObserverDemo',
         exact: true,
       },
       {
         path: '/frameStoreData',
-        component: FrameStoreData,
+        component: '@/pages/frameStoreData',
         exact: true,
       },
     ],
