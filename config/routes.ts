@@ -82,6 +82,11 @@ export default [
         component: '@/pages/frameStoreData',
         exact: true,
       },
+      {
+        path: '/memoDemo',
+        component: '@/pages/memoDemo',
+        exact: true,
+      },
     ],
   },
 ];
