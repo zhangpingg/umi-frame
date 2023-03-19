@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/lib/locale/zh_CN';
@@ -11,6 +12,11 @@ ConfigProvider.config({
 });
 
 const Layouts = (props: any) => {
+  /** 如果是单独打开子应用的话，先手动增加类名，方便展示页面样式 */
+  useEffect(() => {
+    document.body.classList.add('theme-gold');
+  }, []);
+
   return (
     <Provider store={store}>
       <ConfigProvider componentSize="small" locale={zhCN} prefixCls="zp-ant">

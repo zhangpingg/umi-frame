@@ -87,6 +87,11 @@ export default [
         component: '@/pages/memoDemo',
         exact: true,
       },
+      {
+        path: '/cryptoJs',
+        component: '@/pages/cryptoJs',
+        exact: true,
+      },
     ],
   },
 ];

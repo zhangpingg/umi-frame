@@ -77,6 +77,10 @@ const Home = () => {
         memo 例子
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('cryptojs')}>
+        crypto-ts 加密解密
+      </Button>
+      <br />
     </div>
   );
 };
