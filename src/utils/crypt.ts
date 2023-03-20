@@ -1,5 +1,4 @@
-import { AES, enc, mode, pad } from 'crypto-js';
-// var CryptoJS = require("crypto-js");
+import { AES, enc, mode, pad } from 'crypto-js'; // var CryptoJS = require("crypto-js");
 
 /** 加密 */
 const aesEncrypt = (password: string, secretkey = 'zhangpingmiyao'): string => {
