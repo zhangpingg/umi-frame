@@ -81,6 +81,10 @@ const Home = () => {
         crypto-ts 加密解密
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('mouseRightClick')}>
+        自定义鼠标右击
+      </Button>
+      <br />
     </div>
   );
 };

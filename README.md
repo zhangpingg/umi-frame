@@ -15,4 +15,5 @@
 12) PerformanceObserver 监听是否有资源请求，跳转到登录页
 13) 子应用获取基座缓存数据
 14) crypto-js 加密解密
+15) contextmenu 自定义鼠标右击
 ```

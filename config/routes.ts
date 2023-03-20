@@ -92,6 +92,11 @@ export default [
         component: '@/pages/cryptoJs',
         exact: true,
       },
+      {
+        path: '/mouseRightClick',
+        component: '@/pages/mouseRightClick',
+        exact: true,
+      },
     ],
   },
 ];
