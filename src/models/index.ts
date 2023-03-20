@@ -19,7 +19,10 @@ const model = {
   // 异步修改数据
   effects: {
     // 调用接口获取用户信息
-    // { payload, callback }:any, { call, put }: any
+    // { payload, callback }:any, { call, put, select }: any
+    // yield call：执行异步请求
+    // yield put：更新数据
+    // yield select：获取state数据
     *getUser({ callback }: any, { put }: any): any {
       try {
         // const res = yield call(api.getSystemUser, payload);     // payload: 接口参数
