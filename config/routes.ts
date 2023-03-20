@@ -97,6 +97,11 @@ export default [
         component: '@/pages/mouseRightClick',
         exact: true,
       },
+      {
+        path: '/createPortalDemo',
+        component: '@/pages/createPortalDemo',
+        exact: true,
+      },
     ],
   },
 ];

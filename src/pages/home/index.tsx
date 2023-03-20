@@ -85,6 +85,10 @@ const Home = () => {
         自定义鼠标右击
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('createPortalDemo')}>
+        创建节点在 DOM 组件的层次结构之外, 如modal,message等
+      </Button>
+      <br />
     </div>
   );
 };

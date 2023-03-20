@@ -16,4 +16,5 @@
 13) 子应用获取基座缓存数据
 14) crypto-js 加密解密
 15) contextmenu 自定义鼠标右击
+16) createPortal-创建节点在 DOM 组件的层次结构之外, 如modal,message等
 ```
