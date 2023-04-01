@@ -13,6 +13,23 @@ const EditFormList = () => {
     const formData = form.getFieldsValue(true);
     console.log('formData', formData);
   };
+  /** 回显数据 */
+  const echoData = () => {
+    const data = [
+      {
+        userName: '张三',
+        grade: 1,
+        age: 10,
+      },
+      {
+        userName: '李四',
+        grade: 2,
+        age: 20,
+      },
+    ];
+    form.setFieldsValue({ tableFormList: data });
+  };
+  /** 表格列头 */
   const getColumns: any = useCallback((add: () => void, remove: Function) => {
     return [
       {
@@ -173,6 +190,7 @@ const EditFormList = () => {
           <Button type="primary" htmlType="submit">
             提交
           </Button>
+          <Button onClick={echoData}>回显数据</Button>
         </Form.Item>
       </Form>
       <div>剩余：{surplus}</div>
