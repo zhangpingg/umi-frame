@@ -102,6 +102,11 @@ export default [
         component: '@/pages/createPortalDemo',
         exact: true,
       },
+      {
+        path: '/workerDemo',
+        component: '@/pages/workerDemo',
+        exact: true,
+      },
     ],
   },
 ];

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import watermark from 'watermark-dom';
 
-const Test = () => {
+const Index = () => {
   // const obj = {
   //   watermark_id: 'wm_div_id', //水印总体的id
   //   watermark_prefix: 'mask_div_id', //小水印的id前缀
@@ -35,4 +35,4 @@ const Test = () => {
   return <div>页面内容</div>;
 };
 
-export default Test;
+export default Index;
