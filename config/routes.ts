@@ -107,6 +107,11 @@ export default [
         component: '@/pages/workerDemo',
         exact: true,
       },
+      {
+        path: '/fileReaderDemo',
+        component: '@/pages/fileReaderDemo',
+        exact: true,
+      },
     ],
   },
 ];
