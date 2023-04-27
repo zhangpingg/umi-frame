@@ -9,7 +9,7 @@ const FileReaderDemo = () => {
   const [percent, setPercent] = useState(0);
 
   const changeFile1 = (e: any) => {
-    setImgSrc1(URL.createObjectURL(e.target.files[0])); // 转换为Blob URL（即Data URL）
+    setImgSrc1(URL.createObjectURL(e.target.files[0])); // 转换为Blob URL（blob:xxx）（blob => Object URL）
   };
   const changeFile2 = (e: any) => {
     const reader = new FileReader();
@@ -19,10 +19,10 @@ const FileReaderDemo = () => {
       case 'text/plain': // 纯文本文档（xx.txt）
         reader.readAsText(file);
         break;
-      case 'image/png': // 图片（xx.png）
-        reader.readAsDataURL(file); // 加载二进制数据，并转换为data:URL格式的Base64字符串
+      case 'image/png': // 图片（xx.png）（blob => base64）
+        reader.readAsDataURL(file); // 加载二进制数据，并转换为data:URL格式的Base64字符串（data:xxx）
         break;
-      case 'application/x-zip-compressed': // xx.zip（大文件）
+      case 'application/x-zip-compressed': // xx.zip（大文件）（blob => ArrayBuffer）
         reader.readAsArrayBuffer(file);
         break;
     }
