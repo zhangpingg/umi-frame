@@ -18,4 +18,5 @@
 15) contextmenu 自定义鼠标右击
 16) createPortal-创建节点在 DOM 组件的层次结构之外, 如modal,message等
 17) Worker 多线程
+18) FileReader异步读取文件 (读取blob对象中的数据)
 ```

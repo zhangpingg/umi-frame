@@ -1,12 +1,17 @@
 import { useRef, useState } from 'react';
 import { Progress } from 'antd';
 
-const DocsPage = () => {
+const FileReaderDemo = () => {
   const fileType = useRef('');
   const [text, setText] = useState();
+  const [imgSrc1, setImgSrc1] = useState<string>();
+  const [imgSrc2, setImgSrc2] = useState<string>();
   const [percent, setPercent] = useState(0);
 
-  const changeFile = (e: any) => {
+  const changeFile1 = (e: any) => {
+    setImgSrc1(URL.createObjectURL(e.target.files[0])); // 转换为Blob URL（即Data URL）
+  };
+  const changeFile2 = (e: any) => {
     const reader = new FileReader();
     const file = e.target.files[0]; // 数组的每个元素都是一个File对象
     fileType.current = file.type;
@@ -29,7 +34,6 @@ const DocsPage = () => {
     };
     // 文件读取完成
     reader.onload = (e: any) => {
-      let preview: any;
       let blob;
       let a;
       switch (fileType.current) {
@@ -37,8 +41,7 @@ const DocsPage = () => {
           setText(e.target.result);
           break;
         case 'image/png':
-          preview = document.getElementById('preview');
-          preview.src = e.target.result; // reader.result 均可
+          setImgSrc2(e.target.result); // reader.result 均可
           break;
         case 'application/x-zip-compressed': // 暂时下载不了
           blob = new Blob([e.target.result]);
@@ -57,12 +60,14 @@ const DocsPage = () => {
 
   return (
     <div>
-      <input type="file" onChange={changeFile} />
+      <input type="file" onChange={changeFile1} />
+      <input type="file" onChange={changeFile2} />
       <p>{text}</p>
-      <img id="preview" />
+      <img src={imgSrc1} />
+      <img src={imgSrc2} />
       <Progress percent={percent} />
     </div>
   );
 };
 
-export default DocsPage;
+export default FileReaderDemo;
