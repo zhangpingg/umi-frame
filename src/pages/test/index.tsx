@@ -7,9 +7,10 @@ const Test = () => {
     // setImgSrc(URL.createObjectURL());
     setImgSrc(btoa(e.target.files[0]));
   };
+
   useEffect(() => {
-    // const str1 = btoa("abcd");    // 编码: YWJjZA==
-    // const str2 = atob(str1);      // 解码: abcd
+    const blob = new Blob(['abcd'], { type: 'text/plain' });
+    console.log(blob);
   }, []);
 
   return (
