@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 const Test = () => {
   const [imgSrc, setImgSrc] = useState<string>();
 
-  const changeFile = (e) => {
+  const changeFile = (e: any) => {
     // setImgSrc(URL.createObjectURL());
     setImgSrc(btoa(e.target.files[0]));
   };
