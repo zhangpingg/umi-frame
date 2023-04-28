@@ -93,7 +93,7 @@ const Home = () => {
         Worker 多线程
       </Button>
       <br />
-      <Button type="link" onClick={() => jumpPage('fileReaderDemo')}>
+      <Button type="link" onClick={() => jumpPage('FileReaderDemo')}>
         FileReader异步读取文件 (读取blob对象中的数据)
       </Button>
       <br />

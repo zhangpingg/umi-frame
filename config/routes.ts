@@ -108,8 +108,8 @@ export default [
         exact: true,
       },
       {
-        path: '/fileReaderDemo',
-        component: '@/pages/fileReaderDemo',
+        path: '/FileReaderDemo',
+        component: '@/pages/FileReaderDemo',
         exact: true,
       },
     ],
