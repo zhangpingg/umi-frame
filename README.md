@@ -20,5 +20,5 @@
 17) Worker 多线程
 18) FileReader异步读取文件 (读取blob对象中的数据), 预览图片,下载文件等
 19) Upload 各种上传方式
-20) spark-md5 计算文件内容的hash
+20) spark-md5 计算文件内容的 hash
 ```
