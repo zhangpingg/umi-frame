@@ -34,10 +34,9 @@ const UploadDemo = () => {
     onChange(info: any) {
       switch (info.file.status) {
         case 'uploading':
-          console.log('上传中');
-          break;
         case 'done':
-          console.log('成功: ', info.file);
+        case 'removed':
+          setFileList2(info.fileList);
           break;
         case 'error':
           console.log('失败: ', info.file);
@@ -71,6 +70,14 @@ const UploadDemo = () => {
     name: 'file',
     multiple: true,
     action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    fileList: fileList2,
+    showUploadList: {
+      showPreviewIcon: true,
+      showRemoveIcon: true,
+      showDownloadIcon: true,
+      removeIcon: false,
+      downloadIcon: false,
+    },
     onChange(info: any) {
       switch (info.file.status) {
         case 'uploading':
@@ -83,7 +90,15 @@ const UploadDemo = () => {
       }
     },
     onDrop() {},
-    fileList: fileList2,
+    onPreview: (file) => {
+      console.log('预览', file);
+    },
+    onRemove: (file) => {
+      console.log('移除的文件', file);
+    },
+    onDownload: (file: any) => {
+      console.log('下载的文件', file);
+    },
   };
 
   return (
@@ -99,7 +114,7 @@ const UploadDemo = () => {
       <hr />
 
       <Upload.Dragger {...uploadProps3}>
-        <p>单击或拖动文件到此区域以上载</p>
+        <p>单击或拖动文件到此区域以上传</p>
       </Upload.Dragger>
     </div>
   );
