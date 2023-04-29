@@ -117,6 +117,11 @@ export default [
         component: '@/pages/uploadDemo',
         exact: true,
       },
+      {
+        path: '/sparkMD5Demo',
+        component: '@/pages/sparkMD5Demo',
+        exact: true,
+      },
     ],
   },
 ];
