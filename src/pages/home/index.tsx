@@ -97,6 +97,10 @@ const Home = () => {
         FileReader异步读取文件 (读取blob对象中的数据)
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('uploadDemo')}>
+        Upload 各种上传方式
+      </Button>
+      <br />
     </div>
   );
 };

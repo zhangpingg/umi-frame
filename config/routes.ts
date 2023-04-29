@@ -112,6 +112,11 @@ export default [
         component: '@/pages/FileReaderDemo',
         exact: true,
       },
+      {
+        path: '/uploadDemo',
+        component: '@/pages/uploadDemo',
+        exact: true,
+      },
     ],
   },
 ];
