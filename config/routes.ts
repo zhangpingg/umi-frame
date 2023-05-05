@@ -122,6 +122,11 @@ export default [
         component: '@/pages/sparkMD5Demo',
         exact: true,
       },
+      {
+        path: '/reactActivationDemo',
+        component: '@/pages/reactActivationDemo',
+        exact: true,
+      },
     ],
   },
 ];

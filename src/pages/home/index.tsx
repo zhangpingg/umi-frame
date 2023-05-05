@@ -105,6 +105,10 @@ const Home = () => {
         spark-md5 计算文件内容的 hash
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('reactActivationDemo')}>
+        react-activation(依赖) 缓存组件，保留组件状态
+      </Button>
+      <br />
     </div>
   );
 };
