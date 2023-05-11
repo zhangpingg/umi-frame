@@ -105,6 +105,10 @@ const Home = () => {
         spark-md5 计算文件内容的 hash
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('longList')}>
+        长列表（时间分片 | 虚拟列表）
+      </Button>
+      <br />
     </div>
   );
 };

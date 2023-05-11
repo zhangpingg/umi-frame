@@ -122,6 +122,11 @@ export default [
         component: '@/pages/sparkMD5Demo',
         exact: true,
       },
+      {
+        path: '/longList',
+        component: '@/pages/longList',
+        exact: true,
+      },
     ],
   },
 ];
