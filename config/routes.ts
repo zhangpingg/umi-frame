@@ -123,6 +123,11 @@ export default [
         exact: true,
       },
       {
+        path: '/reactActivationDemo',
+        component: '@/pages/reactActivationDemo',
+        exact: true,
+      },
+      {
         path: '/longList',
         component: '@/pages/longList',
         exact: true,
