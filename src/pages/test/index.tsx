@@ -1,15 +1,18 @@
-import _ from 'lodash';
-import { Input } from 'antd';
+import { useEffect, useRef } from 'react';
 
 const Test = () => {
-  const debounceFn = _.debounce(() => {
-    console.log(11);
-  }, 1000);
+  const pRef = useRef<any>();
+
+  useEffect(() => {
+    const pNode = pRef.current.getBoundingClientRect(); // 返回元素的大小即相对于视口的位置
+    console.log(pNode);
+  }, []);
 
   return (
     <div>
-      防抖：
-      <Input onChange={debounceFn} />
+      <p ref={pRef} style={{ margin: '10px 20px 30px 40px' }}>
+        内容
+      </p>
     </div>
   );
 };
