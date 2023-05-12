@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import styles from './index.module.less';
 
-const mockData = new Array(2000).fill('').map((item, index) => index + 1); // 模拟后台数据
+const mockData = new Array(10000).fill('').map((item, index) => index + 1); // 模拟后台返回数据
 const itemHeight = 50; // 每项高度
 
-const VirtualList = () => {
+const VirtualListFixedHieght = () => {
   const listRef = useRef<any>();
   const [allListData, setAllListData] = useState<number[]>([]); // 所有列表数据
   const [visibleListData, setVisiblListeData] = useState<number[]>([]); // 真实显示列表数据
@@ -18,12 +18,15 @@ const VirtualList = () => {
   const getVisibleItemCount = useCallback(() => {
     return Math.ceil(listRef.current?.offsetHeight / itemHeight);
   }, [listRef, itemHeight]);
-  /** 滚动 */
-  const scrollEvent = () => {
+  /** 滚动列表 */
+  const scrollList = () => {
     const scrollTop = listRef.current.scrollTop; // 当前滚动位置
     const start = Math.floor(scrollTop / itemHeight);
     const end = start + getVisibleItemCount();
-    const sliceData = allListData.slice(start, end); // Math.min(end, listData.length)
+    const sliceData = allListData.slice(
+      start,
+      Math.min(end, allListData.length),
+    );
     setVisiblListeData(sliceData);
     setStartOffset(scrollTop - (scrollTop % itemHeight));
   };
@@ -35,7 +38,8 @@ const VirtualList = () => {
   }, []);
 
   return (
-    <div ref={listRef} className={styles['container']} onScroll={scrollEvent}>
+    <div ref={listRef} className={styles['container']} onScroll={scrollList}>
+      {/* 用于占位，形成滚动条 */}
       <div
         className={styles['container-scroll']}
         style={{ height: `${listHeight}px` }}
@@ -56,4 +60,4 @@ const VirtualList = () => {
   );
 };
 
-export default VirtualList;
+export default VirtualListFixedHieght;

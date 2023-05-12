@@ -110,7 +110,7 @@ const Home = () => {
       </Button>
       <br />
       <Button type="link" onClick={() => jumpPage('longList')}>
-        大数据-长列表（时间分片 | 虚拟列表）
+        大数据-长列表【时间分片 | 虚拟列表（列表项固定高度）】
       </Button>
       <br />
     </div>

@@ -18,7 +18,7 @@ const TimeFragmentation = () => {
       const fragment = document.createDocumentFragment();
       for (let i = 0; i < pageCount; i++) {
         const li = document.createElement('li');
-        li.innerText = `${curIndex + i}`;
+        li.innerText = `列表项 ${curIndex + i}`;
         fragment.appendChild(li);
       }
       dataRef.current?.ul.appendChild(fragment);
