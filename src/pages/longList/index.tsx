@@ -1,9 +1,11 @@
 import TimeFragmentation from './timeFragmentation';
+import VirtualList from './virtualList';
 
 const LongList = () => {
   return (
     <div>
-      <TimeFragmentation />
+      {/* <TimeFragmentation /> */}
+      <VirtualList />
     </div>
   );
 };

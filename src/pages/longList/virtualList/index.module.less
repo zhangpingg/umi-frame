@@ -1,0 +1,24 @@
+.container {
+  width: 400px;
+  height: 300px;
+  border: 1px solid #000;
+  overflow-y: auto;
+  position: relative;
+  .container-scroll {
+    // 用于占位，形成滚动条
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: -1;
+  }
+  .container-realList {
+    position: absolute;
+    width: 100%;
+    .container-realList-item {
+      line-height: 50px;
+      border-bottom: 1px solid #ccc;
+      text-align: center;
+    }
+  }
+}
