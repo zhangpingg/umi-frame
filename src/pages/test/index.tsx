@@ -1,22 +1,15 @@
-import { useEffect, useState } from 'react';
+import _ from 'lodash';
+import { Input } from 'antd';
 
 const Test = () => {
-  const [imgSrc, setImgSrc] = useState<string>();
-
-  const changeFile = (e: any) => {
-    // setImgSrc(URL.createObjectURL());
-    setImgSrc(btoa(e.target.files[0]));
-  };
-
-  useEffect(() => {
-    const blob = new Blob(['abcd'], { type: 'text/plain' });
-    console.log(blob);
-  }, []);
+  const debounceFn = _.debounce(() => {
+    console.log(11);
+  }, 1000);
 
   return (
     <div>
-      <input type="file" onChange={changeFile} />
-      <img id="preview" src={imgSrc} />
+      防抖：
+      <Input onChange={debounceFn} />
     </div>
   );
 };

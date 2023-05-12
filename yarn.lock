@@ -9731,6 +9731,11 @@ watermark-dom@^2.3.0:
   resolved "https://registry.npmjs.org/watermark-dom/-/watermark-dom-2.3.0.tgz#9b79c0f0f5bc6fe150524c9f996ab1eb0ff5137f"
   integrity sha512-2++fJESs8ULlrOPHEJGi72UxcDmVTsJDZ3kMa5umU6IWc78A4g1kOAqh1k6FEQhrq9QpkV7wzuoUeMhvFlWGWg==
 
+web-vitals@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.npmjs.org/web-vitals/-/web-vitals-3.3.1.tgz#f80e4fd01784476c023c8b2c4219075bbe96f64d"
+  integrity sha512-LTfY5GjcY3ngFzNsYFSYL+AmVmlWrzPTUxSMDis2rZbf+SzT7HH3NH4Y/l45XOlrAIunOBeURN9qtBHkRskAiA==
+
 webidl-conversions@^5.0.0:
   version "5.0.0"
   resolved "https://registry.npmjs.org/webidl-conversions/-/webidl-conversions-5.0.0.tgz#ae59c8a00b121543a2acc65c0434f57b0fc11aff"
