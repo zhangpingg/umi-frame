@@ -1,4 +1,4 @@
-// 1) 存在差值
+// 1) 【？？？】
 // 2）鼠标拖拽滑块，滚动条不好滚动
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -73,7 +73,6 @@ const VirtualListRandomHieght = () => {
       if (dValue) {
         positions[index].bottom = positions[index].bottom - dValue;
         positions[index].height = height;
-        // 【？？？】
         for (let k = index + 1; k < positions.length; k++) {
           positions[k].top = positions[k - 1].bottom;
           positions[k].bottom = positions[k].bottom - dValue;
@@ -125,7 +124,7 @@ const VirtualListRandomHieght = () => {
               data-index={item.index}
               className={styles['container-realList-item']}
             >
-              列表项 {item.index} {item.value}
+              【{item.index}】 {item.value}
             </li>
           );
         })}
