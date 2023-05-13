@@ -1,4 +1,4 @@
-// 1) 【？？？】
+// 1) 二分法【？？？】
 // 2）鼠标拖拽滑块，滚动条不好滚动【样式】
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -12,6 +12,7 @@ const mockData = new Array(2000).fill('').map((item, index) => ({
   value: getRandomContent(10, 100),
 }));
 const itemHeight = 50; // 预估高度（estimatedItemSize）
+const bufferCount = 2; // 缓存区个数
 
 const VirtualListRandomHieght = () => {
   const containerRef = useRef<any>(null);
@@ -84,12 +85,11 @@ const VirtualListRandomHieght = () => {
   /** 滚动列表 */
   const scrollList = () => {
     const scrollTop = containerRef.current.scrollTop; // 当前滚动位置
-    const start = getStartIndex(positions, scrollTop);
-    const end = start + getVisibleItemCount();
-    const sliceData = allListData.slice(
-      start,
-      Math.min(end, allListData.length),
-    );
+    const _start = getStartIndex(positions, scrollTop); // 可视区的start索引
+    const _end = _start + getVisibleItemCount(); // 可视区的end索引
+    const start = _start - Math.min(_start, bufferCount);
+    const end = Math.min(_end + bufferCount, allListData.length);
+    const sliceData = allListData.slice(start, end);
     setVisiblListeData(sliceData);
     setStartOffset(start >= 1 ? positions[start - 1].bottom : 0);
     updateItemsSize();

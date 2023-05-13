@@ -28,7 +28,8 @@ const VirtualListFixedHieght = () => {
       Math.min(end, allListData.length),
     );
     setVisiblListeData(sliceData);
-    setStartOffset(scrollTop - (scrollTop % itemHeight));
+    setStartOffset(start * itemHeight); // 1)划过一格才会有偏移量
+    // setStartOffset(scrollTop - (scrollTop % itemHeight)); // 2)
   };
 
   useEffect(() => {
