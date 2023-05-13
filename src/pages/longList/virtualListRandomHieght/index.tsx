@@ -1,11 +1,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import styles from './index.module.less';
 
-// const mockData = new Array(10000).fill('').map((item, index) => index + 1);
 // 模拟后台返回数据
 const mockData = new Array(2000)
   .fill('')
-  .map((item, index) => ({ id: index, index, value: '内容' }));
+  .map((item, index) => ({ index, id: `ID_${index}`, value: '内容' }));
 const itemHeight = 50; // 预估高度（estimatedItemSize）
 
 const VirtualListRandomHieght = () => {
@@ -14,7 +13,17 @@ const VirtualListRandomHieght = () => {
   const [allListData, setAllListData] = useState<any[]>([]); // 所有列表数据
   const [visibleListData, setVisiblListeData] = useState<any[]>([]); // 真实显示列表数据
   const [startOffset, setStartOffset] = useState(0); // 偏移量
-  const [positions, setPositions] = useState<any[]>([]); // 记录每一项的位置信息
+  // 记录每一项的位置信息
+  const [positions, setPositions] = useState<any[]>(() => {
+    return mockData.map((item, index) => {
+      return {
+        index,
+        height: itemHeight,
+        top: index * itemHeight,
+        bottom: (index + 1) * itemHeight,
+      };
+    });
+  });
 
   /** 列表总高度 */
   const listHeight = useMemo(() => {
@@ -24,44 +33,34 @@ const VirtualListRandomHieght = () => {
   const getVisibleItemCount = useCallback(() => {
     return Math.ceil(containerRef.current?.offsetHeight / itemHeight);
   }, [containerRef, itemHeight]);
-  /** 二分法查询 */
-  const binarySearch = (scrollTop: number) => {
-    return 1;
-  };
-  /** 获取起始索引 */
-  const getStartIndex = (scrollTop: number) => {
-    return binarySearch(scrollTop);
-  };
-  /** 滚动列表 */
-  const scrollList = () => {
-    const scrollTop = containerRef.current.scrollTop; // 当前滚动位置
-    const start = getStartIndex(scrollTop);
-    const end = start + getVisibleItemCount();
-    const sliceData = allListData.slice(
-      start,
-      Math.min(end, allListData.length),
-    );
-    setVisiblListeData(sliceData);
-    setStartOffset(scrollTop - (scrollTop % itemHeight));
-  };
-  /** 初始化位置信息 */
-  const initPositions = () => {
-    const list = allListData.map((item, index) => {
-      return {
-        index,
-        height: itemHeight,
-        top: index * itemHeight,
-        bottom: (index + 1) * itemHeight,
-      };
-    });
-    setPositions(list);
+  /** 获取起始索引（二分法查找） */
+  const getStartIndex = (list: any[], value: number) => {
+    let start = 0;
+    let end = list.length - 1;
+    let tempIndex = null;
+    while (start < end) {
+      const midIndex = parseInt(String((start + end) / 2));
+      const midValue = list[midIndex].bottom;
+      if (midValue === value) {
+        return midIndex + 1;
+      } else if (midValue < value) {
+        start = midIndex + 1;
+      } else if (midValue > value) {
+        // 【？？？】
+        if (tempIndex === null || tempIndex > midIndex) {
+          tempIndex = midIndex;
+        }
+        end = end - 1;
+      }
+    }
+    return tempIndex || 0;
   };
   /** 更新item大小 */
   const updateItemsSize = () => {
     const nodes = Array.from(listWrapRef.current.children);
     nodes.forEach((node: any) => {
       const rect = node.getBoundingClientRect();
-      const index = Number(rect.index);
+      const index = Number(node.getAttribute('data-index'));
       const height = rect.height;
       const dValue = positions[index].height - height;
       // 存在差值
@@ -76,13 +75,31 @@ const VirtualListRandomHieght = () => {
     });
     setPositions([...positions]);
   };
+  /** 滚动列表 */
+  const scrollList = () => {
+    const scrollTop = containerRef.current.scrollTop; // 当前滚动位置
+    const start = getStartIndex(positions, scrollTop);
+    const end = start + getVisibleItemCount();
+    const sliceData = allListData.slice(
+      start,
+      Math.min(end, allListData.length),
+    );
+    setVisiblListeData(sliceData);
+    if (start > 0) {
+      setStartOffset(positions[start - 1].bottom);
+    } else {
+      setStartOffset(0);
+    }
+    updateItemsSize();
+  };
 
   useEffect(() => {
     setAllListData(mockData);
     setVisiblListeData(mockData.slice(0, getVisibleItemCount()));
-    initPositions();
     updateItemsSize();
   }, []);
+
+  console.log('visibleListData', visibleListData);
 
   return (
     <div
@@ -102,8 +119,12 @@ const VirtualListRandomHieght = () => {
       >
         {visibleListData.map((item) => {
           return (
-            <li key={item} className={styles['container-realList-item']}>
-              列表项 {item}
+            <li
+              key={item.id}
+              data-index={item.index}
+              className={styles['container-realList-item']}
+            >
+              列表项 {item.index}
             </li>
           );
         })}
