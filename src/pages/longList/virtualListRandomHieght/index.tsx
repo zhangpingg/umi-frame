@@ -1,10 +1,16 @@
+// 1) 存在差值
+// 2）鼠标拖拽滑块，滚动条不好滚动
+
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { getRandomContent } from './const';
 import styles from './index.module.less';
 
 // 模拟后台返回数据
-const mockData = new Array(2000)
-  .fill('')
-  .map((item, index) => ({ index, id: `ID_${index}`, value: '内容' }));
+const mockData = new Array(2000).fill('').map((item, index) => ({
+  index,
+  id: `ID_${index}`,
+  value: getRandomContent(10, 100),
+}));
 const itemHeight = 50; // 预估高度（estimatedItemSize）
 
 const VirtualListRandomHieght = () => {
@@ -67,6 +73,7 @@ const VirtualListRandomHieght = () => {
       if (dValue) {
         positions[index].bottom = positions[index].bottom - dValue;
         positions[index].height = height;
+        // 【？？？】
         for (let k = index + 1; k < positions.length; k++) {
           positions[k].top = positions[k - 1].bottom;
           positions[k].bottom = positions[k].bottom - dValue;
@@ -85,11 +92,7 @@ const VirtualListRandomHieght = () => {
       Math.min(end, allListData.length),
     );
     setVisiblListeData(sliceData);
-    if (start > 0) {
-      setStartOffset(positions[start - 1].bottom);
-    } else {
-      setStartOffset(0);
-    }
+    setStartOffset(start >= 1 ? positions[start - 1].bottom : 0);
     updateItemsSize();
   };
 
@@ -98,8 +101,6 @@ const VirtualListRandomHieght = () => {
     setVisiblListeData(mockData.slice(0, getVisibleItemCount()));
     updateItemsSize();
   }, []);
-
-  console.log('visibleListData', visibleListData);
 
   return (
     <div
@@ -124,7 +125,7 @@ const VirtualListRandomHieght = () => {
               data-index={item.index}
               className={styles['container-realList-item']}
             >
-              列表项 {item.index}
+              列表项 {item.index} {item.value}
             </li>
           );
         })}
