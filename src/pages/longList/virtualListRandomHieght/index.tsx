@@ -1,5 +1,5 @@
 // 1) 【？？？】
-// 2）鼠标拖拽滑块，滚动条不好滚动
+// 2）鼠标拖拽滑块，滚动条不好滚动【样式】
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { getRandomContent } from './const';
