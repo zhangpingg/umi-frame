@@ -45,16 +45,15 @@ const VirtualListRandomHieght = () => {
     let start = 0;
     let end = list.length - 1;
     let tempIndex = null;
-    while (start < end) {
-      const midIndex = parseInt(String((start + end) / 2));
+    while (start <= end) {
+      const midIndex = Math.floor((start + end) / 2);
       const midValue = list[midIndex].bottom;
       if (midValue === value) {
-        return midIndex + 1;
+        return midIndex;
       } else if (midValue < value) {
         start = midIndex + 1;
       } else if (midValue > value) {
-        // 【？？？】
-        if (tempIndex === null || tempIndex > midIndex) {
+        if (tempIndex === null || midIndex < tempIndex) {
           tempIndex = midIndex;
         }
         end = end - 1;
