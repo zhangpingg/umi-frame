@@ -4,7 +4,7 @@
   overflow-y: auto;
   position: relative;
   border: 2px solid #000;
-  outline: 1px solid #f00; // 【鼠标拖拽滑块，滚动条顺滑】
+  outline: 1px solid #f00; // 将不可见区域的数据替换为占位符，避免了大量数据的渲染，提高了列表的渲染性能
   .container-scroll {
     position: absolute;
     left: 0;
