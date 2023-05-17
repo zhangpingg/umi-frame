@@ -113,6 +113,10 @@ const Home = () => {
         大数据-长列表【时间分片 | 虚拟列表（列表项固定高度|列表项随机高度）】
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('parentToChildFn')}>
+        父组件调用子组件方法
+      </Button>
+      <br />
     </div>
   );
 };

@@ -132,6 +132,11 @@ export default [
         component: '@/pages/longList',
         exact: true,
       },
+      {
+        path: '/parentToChildFn',
+        component: '@/pages/parentToChildFn',
+        exact: true,
+      },
     ],
   },
 ];
