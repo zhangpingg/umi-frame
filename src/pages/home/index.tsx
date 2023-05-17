@@ -117,6 +117,10 @@ const Home = () => {
         父组件调用子组件方法-useImperativeHandle
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('useContextDemo')}>
+        父子传值-useContext
+      </Button>
+      <br />
     </div>
   );
 };

@@ -137,6 +137,11 @@ export default [
         component: '@/pages/useImperativeHandleDemo',
         exact: true,
       },
+      {
+        path: '/useContextDemo',
+        component: '@/pages/useContextDemo',
+        exact: true,
+      },
     ],
   },
 ];
