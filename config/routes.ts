@@ -133,8 +133,8 @@ export default [
         exact: true,
       },
       {
-        path: '/parentToChildFn',
-        component: '@/pages/parentToChildFn',
+        path: '/useImperativeHandleDemo',
+        component: '@/pages/useImperativeHandleDemo',
         exact: true,
       },
     ],
