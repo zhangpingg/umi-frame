@@ -1,18 +1,21 @@
 import { useEffect, useRef } from 'react';
 
 const Test = () => {
-  const pRef = useRef<any>();
+  let timer: any = useRef();
 
-  useEffect(() => {
-    const pNode = pRef.current.getBoundingClientRect(); // 返回元素的大小即相对于视口的位置
-    console.log(pNode);
-  }, []);
+  const startFn = () => {
+    console.log('动画ing');
+    // 可以理解为setTimeout()
+    timer = window.requestAnimationFrame(startFn);
+  };
+  const stopFn = () => {
+    window.cancelAnimationFrame(timer);
+  };
 
   return (
     <div>
-      <p ref={pRef} style={{ margin: '10px 20px 30px 40px' }}>
-        内容
-      </p>
+      <button onClick={startFn}>开始</button>
+      <button onClick={stopFn}>暂停</button>
     </div>
   );
 };

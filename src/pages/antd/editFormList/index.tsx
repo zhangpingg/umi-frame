@@ -166,19 +166,13 @@ const EditFormList = () => {
           {(fields, { add, remove }) => {
             const tableData = fields.map((field, index) => ({
               ...field,
-              // prdId: undefined,
-              // pflId: undefined,
-              // amt: undefined,
-              // cleaAmt: undefined,
-              // intrAmt: undefined,
-              // index: index,
               isFristRow: field.name === 0,
               isLastRow: index === fields?.length - 1,
             }));
             return (
               <Table
                 dataSource={tableData}
-                columns={getColumns(add, remove, tableData)}
+                columns={getColumns(add, remove)}
                 rowKey="key"
                 pagination={false}
                 scroll={{ x: 1000, y: 500 }}
