@@ -5,8 +5,8 @@ import EditFormList from './editFormList';
 const Index = () => {
   return (
     <div>
-      {/* <EditCell />
-      <EditRow /> */}
+      <EditCell />
+      <EditRow />
       <EditFormList />
     </div>
   );

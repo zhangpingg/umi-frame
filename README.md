@@ -9,8 +9,8 @@
 06) 水印
 07) react-grid-layou响应布局
 08) 表格内容自动滚动
-09) antv
-10) 编辑单元格、编辑行
+09) antv 图表
+10) antd
 11) 换肤
 12) PerformanceObserver 监听是否有资源请求，跳转到登录页
 13) 子应用获取基座缓存数据
