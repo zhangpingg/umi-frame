@@ -4,7 +4,7 @@ export const qiankun = {
     console.log('App1(xone-app1) bootstrap', props);
     // 获取本地配置文件
     await window
-      .fetch('/xone-app1/config.json')
+      .fetch(`/xone-app1/config.json?time=${Math.random()}`)
       .then((response) => response.json())
       .then((res) => {
         window.$webConfig = res;
