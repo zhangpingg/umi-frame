@@ -142,6 +142,11 @@ export default [
         component: '@/pages/useContextDemo',
         exact: true,
       },
+      {
+        path: '/dataDetailsDemo',
+        component: '@/pages/dataDetailsDemo',
+        exact: true,
+      },
     ],
   },
 ];

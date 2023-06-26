@@ -121,6 +121,10 @@ const Home = () => {
         父子传值-useContext
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('dataDetailsDemo')}>
+        详情组件 (后期迁移到zp-design组件库中)
+      </Button>
+      <br />
     </div>
   );
 };
