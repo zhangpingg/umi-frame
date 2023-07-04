@@ -1,11 +1,11 @@
 import { useEffect, useRef } from 'react';
 
 const WorkerDemo = () => {
-  const workerRef = useRef<Worker>(); //（worker => workerRef.current）
+  const workerRef = useRef<Worker>(); //（下方worker => workerRef.current）
 
   useEffect(() => {
     // 主线程
-    const worker = new Worker('./worker.js');
+    const worker = new Worker('./worker.js'); // worker线程（需要放在public中,使用绝对路径引用）
     worker.postMessage('数据: 主线程=>worker线程');
     worker.onmessage = (e) => {
       console.log(e.data); // 数据: worker线程=>主线程
