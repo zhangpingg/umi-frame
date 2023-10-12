@@ -1,6 +1,7 @@
 import EditCell from './editCell';
 import EditRow from './editRow';
 import EditFormList from './editFormList';
+import MergeCell from './mergeCell';
 
 const Index = () => {
   return (
@@ -8,6 +9,7 @@ const Index = () => {
       <EditCell />
       <EditRow />
       <EditFormList />
+      <MergeCell />
     </div>
   );
 };
