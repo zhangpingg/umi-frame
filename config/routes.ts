@@ -147,6 +147,11 @@ export default [
         component: '@/pages/dataDetailsDemo',
         exact: true,
       },
+      {
+        path: '/domToImageDemo',
+        component: '@/pages/domToImageDemo',
+        exact: true,
+      },
     ],
   },
 ];

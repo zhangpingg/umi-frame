@@ -125,6 +125,10 @@ const Home = () => {
         详情组件 (后期迁移到zp-design组件库中)
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('domToImageDemo')}>
+        Dom转换为图片
+      </Button>
+      <br />
     </div>
   );
 };
