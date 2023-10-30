@@ -4,6 +4,7 @@ declare module '*.png';
 declare module '*.js';
 declare module '*.tsx';
 declare module '*.ts';
+declare module '*.jpg';
 declare module 'react/jsx-runtime';
 declare module 'less-plugin-functions';
 declare module 'react-grid-layout';
