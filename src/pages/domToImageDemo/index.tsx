@@ -52,6 +52,7 @@ const Index = () => {
   };
 
   useEffect(() => {
+    // 线上图片需要转换为base64，否则转换为canvas，再转图片的时候显示不出来
     transImageToBase64Image(onlinePic).then((url) => {
       setOnLineUrl(url);
     });
