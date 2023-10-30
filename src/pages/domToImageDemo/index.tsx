@@ -69,7 +69,7 @@ const Index = () => {
         <img src={localPic} alt="" />
       </div>
       <br />
-      <img src={img} />
+      <img src={imgUrl} />
       <div>
         <Button onClick={transDomToCanvas}>dom转换为图片</Button>
         <Button onClick={downloadPic}>下载</Button>
