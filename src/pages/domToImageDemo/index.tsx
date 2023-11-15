@@ -18,7 +18,7 @@ const Index = () => {
 
   // 转换dom为图片（dom -> canvas -> 图片）
   const transDomToCanvas = () => {
-    html2canvas(boxRef.current!).then(function (canvas) {
+    html2canvas(boxRef.current!, { useCORS: true }).then(function (canvas) {
       const url = canvas.toDataURL();
       setImgUrl(url);
     });
@@ -66,8 +66,8 @@ const Index = () => {
         <p>汗滴禾下土</p>
         <p>谁知盘中餐</p>
         <p>粒粒皆辛苦</p>
-        <img src={onlineUrl} />
-        <img src={localPic} alt="" />
+        <img src={onlineUrl} crossOrigin="anonymous" />
+        <img src={localPic} crossOrigin="anonymous" alt="" />
       </div>
       <br />
       <img src={imgUrl} />
