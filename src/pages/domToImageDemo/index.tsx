@@ -18,7 +18,9 @@ const Index = () => {
 
   // 转换dom为图片（dom -> canvas -> 图片）
   const transDomToCanvas = () => {
-    html2canvas(boxRef.current!, { useCORS: true }).then(function (canvas) {
+    html2canvas(boxRef.current!, { useCORS: true }).then(function (
+      canvas: any,
+    ) {
       const url = canvas.toDataURL();
       setImgUrl(url);
     });
