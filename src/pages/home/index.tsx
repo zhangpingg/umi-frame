@@ -129,6 +129,10 @@ const Home = () => {
         Dom转换为图片
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('lotteryDraw')}>
+        抽奖
+      </Button>
+      <br />
     </div>
   );
 };

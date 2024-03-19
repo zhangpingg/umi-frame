@@ -152,6 +152,11 @@ export default [
         component: '@/pages/domToImageDemo',
         exact: true,
       },
+      {
+        path: '/lotteryDraw',
+        component: '@/pages/lotteryDraw',
+        exact: true,
+      },
     ],
   },
 ];

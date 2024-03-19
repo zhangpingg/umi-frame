@@ -25,6 +25,7 @@
   "dependencies": {
     "@ant-design/pro-layout": "^6.5.0",
     "@antv/g2plot": "^2.4.25",
+    "@lucky-canvas/react": "^0.1.13",
     "@reduxjs/toolkit": "^1.8.6",
     "@types/lodash": "^4.14.194",
     "@types/react-grid-layout": "^1.3.2",
@@ -57,7 +58,7 @@
   },
   "devDependencies": {
     "@types/dom-to-image": "^2.6.6",
-    "@types/react": "^17.0.0",
+    "@types/react": "^17.0.79",
     "@types/react-dom": "^17.0.0",
     "@types/watermark-dom": "^2.3.1",
     "@umijs/plugin-qiankun": "^2.40.0",

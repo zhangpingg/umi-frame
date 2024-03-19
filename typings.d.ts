@@ -10,6 +10,7 @@ declare module 'less-plugin-functions';
 declare module 'react-grid-layout';
 declare module 'crypto-js';
 declare module 'react-activation';
+declare module '@lucky-canvas/react';
 declare module '*.svg' {
   export function ReactComponent(
     props: React.SVGProps<SVGSVGElement>,
