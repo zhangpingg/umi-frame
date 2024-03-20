@@ -133,6 +133,10 @@ const Home = () => {
         抽奖
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('animateDemo')}>
+        Animate.css动画
+      </Button>
+      <br />
     </div>
   );
 };

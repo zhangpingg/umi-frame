@@ -157,6 +157,11 @@ export default [
         component: '@/pages/lotteryDraw',
         exact: true,
       },
+      {
+        path: '/animateDemo',
+        component: '@/pages/animateDemo',
+        exact: true,
+      },
     ],
   },
 ];
