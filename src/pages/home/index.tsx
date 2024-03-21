@@ -130,11 +130,15 @@ const Home = () => {
       </Button>
       <br />
       <Button type="link" onClick={() => jumpPage('lotteryDraw')}>
-        抽奖
+        转盘/九宫格/老虎机-抽奖
       </Button>
       <br />
       <Button type="link" onClick={() => jumpPage('animateDemo')}>
         Animate.css动画
+      </Button>
+      <br />
+      <Button type="link" onClick={() => jumpPage('smashEgg')}>
+        砸金蛋抽奖 (H5移动端)
       </Button>
       <br />
     </div>

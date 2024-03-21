@@ -19,3 +19,57 @@ p {
 li {
   list-style: none;
 }
+ul {
+  list-style-type: none;
+}
+.por {
+  position: relative;
+}
+.poa {
+  position: absolute;
+}
+.tac {
+  text-align: center;
+}
+.tar {
+  text-align: right;
+}
+.w-100 {
+  width: 100%;
+}
+.dn {
+  display: none;
+}
+
+// margin, padding, font-size
+.setMarPadFontSize( @i:0, @n:30,) when(@i<@n) {
+  .pt-@{i} {
+    padding-top: unit(@i, px);
+  }
+  .pr-@{i} {
+    padding-right: unit(@i, px);
+  }
+  .pb-@{i} {
+    padding-bottom: unit(@i, px);
+  }
+  .pl-@{i} {
+    padding-left: unit(@i, px);
+  }
+  .mt-@{i} {
+    margin-top: unit(@i, px);
+  }
+  .mr-@{i} {
+    margin-right: unit(@i, px);
+  }
+  .mb-@{i} {
+    margin-bottom: unit(@i, px);
+  }
+  .ml-@{i} {
+    margin-left: unit(@i, px);
+  }
+  .fs-@{i} {
+    font-size: unit(@i, px);
+  }
+  .setMarPadFontSize((@i+1), @n);
+}
+.setMarPadFontSize();

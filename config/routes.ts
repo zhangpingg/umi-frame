@@ -162,6 +162,11 @@ export default [
         component: '@/pages/animateDemo',
         exact: true,
       },
+      {
+        path: '/smashEgg',
+        component: '@/pages/smashEgg',
+        exact: true,
+      },
     ],
   },
 ];

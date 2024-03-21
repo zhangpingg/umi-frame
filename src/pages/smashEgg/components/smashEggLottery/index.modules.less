@@ -1,0 +1,230 @@
+.sml {
+  background: #fff071;
+  padding: 30px 20px;
+  overflow: hidden;
+  .sml-col {
+    border: 1px solid #000;
+    text-align: center;
+    .sml-col-egg {
+      width: 80px;
+      z-index: 1;
+    }
+    .sml-col-eggBase {
+      width: 80px;
+      transform: translateX(-50%);
+      left: 50%;
+      bottom: 4px;
+    }
+    .sml-col-tip {
+      width: 40px;
+      transform: translateX(-50%);
+      left: 20%;
+      top: 10px;
+      z-index: 2;
+    }
+  }
+  .sml-hammer {
+    width: 50px;
+    top: 0;
+    right: -8px;
+    z-index: 3;
+    transform: rotate(-10deg);
+    transform-origin: right bottom;
+  }
+  .sml-hammerSwing {
+    animation: swingAnimation 1.2s linear 0s infinite alternate;
+  }
+  // 锤子摇摆动画
+  @keyframes swingAnimation {
+    0% {
+      transform: rotate(-10deg);
+    }
+    50% {
+      transform: rotate(5deg);
+    }
+    100% {
+      transform: rotate(-10deg);
+    }
+  }
+  .sml-hammerProcess0 {
+    animation: processAnimation0 2s 0s 1;
+  }
+  .sml-hammerProcess1 {
+    animation: processAnimation1 2s 0s 1;
+  }
+  .sml-hammerProcess2 {
+    animation: processAnimation2 1.5s 0s 1;
+  }
+  .sml-hammerProcess3 {
+    animation: processAnimation3 2s 0s 1;
+  }
+  .sml-hammerProcess4 {
+    animation: processAnimation4 2s 0s 1;
+  }
+  .sml-hammerProcess5 {
+    animation: processAnimation5 2s 0s 1;
+  }
+  .sml-hammerProcess6 {
+    animation: processAnimation6 2s 0s 1;
+  }
+  .sml-hammerProcess7 {
+    animation: processAnimation7 2s 0s 1;
+  }
+  .sml-hammerProcess8 {
+    animation: processAnimation8 2s 0s 1;
+  }
+  // 锤子去砸蛋过程动画
+  @keyframes processAnimation0 {
+    50% {
+      top: 20px;
+      right: 240px;
+      transform: rotate(-20deg);
+    }
+    60% {
+      top: 20px;
+      right: 240px;
+      transform: rotate(15deg);
+    }
+    70% {
+      top: 20px;
+      right: 240px;
+      transform: rotate(-20deg);
+    }
+  }
+  @keyframes processAnimation1 {
+    50% {
+      top: 20px;
+      right: 130px;
+      transform: rotate(-20deg);
+    }
+    60% {
+      top: 20px;
+      right: 130px;
+      transform: rotate(15deg);
+    }
+    70% {
+      top: 20px;
+      right: 130px;
+      transform: rotate(-20deg);
+    }
+  }
+  @keyframes processAnimation2 {
+    50% {
+      top: 20px;
+      right: 20px;
+      transform: rotate(-20deg);
+    }
+    60% {
+      top: 20px;
+      right: 20px;
+      transform: rotate(15deg);
+    }
+    70% {
+      top: 20px;
+      right: 20px;
+      transform: rotate(-20deg);
+    }
+  }
+  @keyframes processAnimation3 {
+    50% {
+      top: 125px;
+      right: 240px;
+      transform: rotate(-20deg);
+    }
+    60% {
+      top: 125px;
+      right: 240px;
+      transform: rotate(15deg);
+    }
+    70% {
+      top: 125px;
+      right: 240px;
+      transform: rotate(-20deg);
+    }
+  }
+  @keyframes processAnimation4 {
+    50% {
+      top: 125px;
+      right: 130px;
+      transform: rotate(-20deg);
+    }
+    60% {
+      top: 125px;
+      right: 130px;
+      transform: rotate(15deg);
+    }
+    70% {
+      top: 125px;
+      right: 130px;
+      transform: rotate(-20deg);
+    }
+  }
+  @keyframes processAnimation5 {
+    50% {
+      top: 125px;
+      right: 20px;
+      transform: rotate(-20deg);
+    }
+    60% {
+      top: 125px;
+      right: 20px;
+      transform: rotate(15deg);
+    }
+    70% {
+      top: 125px;
+      right: 20px;
+      transform: rotate(-20deg);
+    }
+  }
+  @keyframes processAnimation6 {
+    50% {
+      top: 230px;
+      right: 240px;
+      transform: rotate(-20deg);
+    }
+    60% {
+      top: 230px;
+      right: 240px;
+      transform: rotate(15deg);
+    }
+    70% {
+      top: 230px;
+      right: 240px;
+      transform: rotate(-20deg);
+    }
+  }
+  @keyframes processAnimation7 {
+    50% {
+      top: 230px;
+      right: 130px;
+      transform: rotate(-20deg);
+    }
+    60% {
+      top: 230px;
+      right: 130px;
+      transform: rotate(15deg);
+    }
+    70% {
+      top: 230px;
+      right: 130px;
+      transform: rotate(-20deg);
+    }
+  }
+  @keyframes processAnimation8 {
+    50% {
+      top: 230px;
+      right: 20px;
+      transform: rotate(-20deg);
+    }
+    60% {
+      top: 230px;
+      right: 20px;
+      transform: rotate(15deg);
+    }
+    70% {
+      top: 230px;
+      right: 20px;
+      transform: rotate(-20deg);
+    }
+  }
+}
