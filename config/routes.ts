@@ -167,6 +167,11 @@ export default [
         component: '@/pages/smashEgg',
         exact: true,
       },
+      {
+        path: '/modalScrollInIOS',
+        component: '@/pages/modalScrollInIOS',
+        exact: true,
+      },
     ],
   },
 ];

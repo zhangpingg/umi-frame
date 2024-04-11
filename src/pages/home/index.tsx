@@ -138,7 +138,11 @@ const Home = () => {
       </Button>
       <br />
       <Button type="link" onClick={() => jumpPage('smashEgg')}>
-        砸金蛋抽奖 (H5移动端)
+        砸金蛋抽奖【H5移动端】
+      </Button>
+      <br />
+      <Button type="link" onClick={() => jumpPage('modalScrollInIOS')}>
+        IOS：弹框中滚动内容，影响了父页面滚动【H5移动端】
       </Button>
       <br />
     </div>
