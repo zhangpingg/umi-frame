@@ -3,33 +3,39 @@ import { Drawer } from 'antd';
 import styles from './index.module.less';
 
 const Index = forwardRef((props, ref) => {
-  const [open, setOpen] = useState<boolean>(true);
+  const [open, setOpen] = useState<boolean>(false);
 
   // 阻止默认事件
   const preventDefault = (e: any) => {
     e.preventDefault();
   };
+  // 设置滚动位置
+  const setScrollPosition = (dom: any) => {
+    const currentScrollTop = dom.scrollTop;
+    if (currentScrollTop < 1) {
+      dom.scrollTop = 1;
+    }
+    if (dom.clientHeight + dom.scrollTop >= dom.scrollHeight) {
+      dom.scrollTop = dom.scrollTop - 1;
+    }
+  };
   // 添加touchmove
   const addTouchmove = () => {
+    // 阻止遮盖层的默认事件
     document
-      ?.querySelector('.dm-layer')
+      ?.querySelector('.zp-ant-drawer-mask')
       ?.addEventListener('touchmove', preventDefault, { passive: false });
+    // 阻止关闭按钮的默认事件
     document
-      ?.querySelector('.dm-main-title')
+      ?.querySelector('.dm-main-close')
       ?.addEventListener('touchmove', preventDefault, { passive: false });
     const listDom: any = document.querySelector('.dm-main-list');
     if (listDom) {
       // 初次打开弹框的时候，初始化数据，滚动条置为1
       listDom.style.overflow = 'scroll';
       listDom.scrollTop = 1;
-      listDom.addEventListener('scroll', function () {
-        const currentScrollTop = listDom.scrollTop;
-        if (currentScrollTop < 1) {
-          listDom.scrollTop = 1;
-        }
-        if (listDom.clientHeight + listDom.scrollTop >= listDom.scrollHeight) {
-          listDom.scrollTop = listDom.scrollTop - 1;
-        }
+      listDom.addEventListener('scroll', () => {
+        setScrollPosition(listDom);
       });
     }
   };
@@ -40,7 +46,6 @@ const Index = forwardRef((props, ref) => {
 
   /** 暴露给父组件 */
   useImperativeHandle(ref, () => ({
-    // 拍瑞t乌
     openCloseModal,
   }));
 
@@ -49,11 +54,12 @@ const Index = forwardRef((props, ref) => {
       addTouchmove();
     } else {
       document
-        ?.querySelector('.dm-layer')
+        ?.querySelector('.zp-ant-drawer-mask')
         ?.removeEventListener('touchmove', preventDefault);
       document
-        ?.querySelector('.dm-main-title')
+        ?.querySelector('.dm-main-close')
         ?.removeEventListener('touchmove', preventDefault);
+      window.removeEventListener('scroll', setScrollPosition);
     }
   }, [open]);
 
@@ -61,15 +67,19 @@ const Index = forwardRef((props, ref) => {
     <Drawer
       placement="bottom"
       closable={false}
-      height="50%"
+      height="400"
       open={open}
       destroyOnClose={true}
       autoFocus={false}
       className={styles['dm']}
     >
-      <span className={styles['dm-layer']}></span>
       <div className={styles['dm-main']}>
-        <div className={styles['dm-main-title']}>标题</div>
+        <div
+          className={styles['dm-main-close']}
+          onClick={() => openCloseModal(false)}
+        >
+          关闭
+        </div>
         <ul className={styles['dm-main-list']}>
           <li>11</li>
           <li>22</li>
