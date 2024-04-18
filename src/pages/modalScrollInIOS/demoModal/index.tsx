@@ -41,6 +41,15 @@ const Index = forwardRef((props, ref) => {
   };
   // 打开弹框
   const openCloseModal = (flag: boolean) => {
+    if (!flag) {
+      document
+        ?.querySelector('.zp-ant-drawer-mask')
+        ?.removeEventListener('touchmove', preventDefault);
+      document
+        ?.querySelector('.dm-main-close')
+        ?.removeEventListener('touchmove', preventDefault);
+      window.removeEventListener('scroll', setScrollPosition);
+    }
     setOpen(flag);
   };
 
@@ -51,15 +60,9 @@ const Index = forwardRef((props, ref) => {
 
   useEffect(() => {
     if (open) {
-      addTouchmove();
-    } else {
-      document
-        ?.querySelector('.zp-ant-drawer-mask')
-        ?.removeEventListener('touchmove', preventDefault);
-      document
-        ?.querySelector('.dm-main-close')
-        ?.removeEventListener('touchmove', preventDefault);
-      window.removeEventListener('scroll', setScrollPosition);
+      Promise.resolve().then(() => {
+        addTouchmove();
+      });
     }
   }, [open]);
 
