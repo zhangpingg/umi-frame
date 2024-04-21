@@ -6,7 +6,7 @@ import styles from './index.module.less';
 const Index = forwardRef((props, ref) => {
   const { addTouchmove, removeTouchmove } = useClearIosScroll({
     forbidList: ['.zp-ant-drawer-mask', '.dm-main-close'],
-    scrollName: '.dm-main-list',
+    scrollList: ['.dm-main-list'],
   });
   const [open, setOpen] = useState<boolean>(false);
 
@@ -35,7 +35,7 @@ const Index = forwardRef((props, ref) => {
     <Drawer
       placement="bottom"
       closable={false}
-      height="400"
+      height={400}
       open={open}
       destroyOnClose={true}
       autoFocus={false}

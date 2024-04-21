@@ -1,7 +1,7 @@
 // 清除IOS滚动问题
 
 const useClearIosScroll = (props: any) => {
-  const { forbidList = [], scrollName = '' } = props;
+  const { forbidList = [], scrollList = [] } = props;
   // 阻止默认事件
   const preventDefault = (e: any) => {
     e.preventDefault();
@@ -28,15 +28,19 @@ const useClearIosScroll = (props: any) => {
         });
       }
     });
-    const listDom = document.querySelector(scrollName);
-    if (listDom) {
-      // 初次打开弹框的时候，初始化数据，滚动条置为1
-      listDom.style.overflow = 'scroll';
-      listDom.scrollTop = 1;
-      listDom.addEventListener('scroll', () => {
-        setScrollPosition(listDom);
-      });
-    }
+    const scrollDomList = scrollList.map((item: string) =>
+      document.querySelector(item),
+    );
+    scrollDomList.map((dom: any) => {
+      if (dom) {
+        // 初次打开弹框的时候，初始化数据，滚动条置为1
+        dom.style.overflow = 'scroll';
+        dom.scrollTop = 1;
+        dom.addEventListener('scroll', () => {
+          setScrollPosition(dom);
+        });
+      }
+    });
   };
   // 移除touchmove
   const removeTouchmove = () => {
@@ -50,10 +54,14 @@ const useClearIosScroll = (props: any) => {
         });
       }
     });
-    const listDom = document.querySelector(scrollName);
-    if (listDom) {
-      listDom.removeEventListener('scroll', setScrollPosition);
-    }
+    const scrollDomList = scrollList.map((item: string) =>
+      document.querySelector(item),
+    );
+    scrollDomList.map((dom: any) => {
+      if (dom) {
+        dom.removeEventListener('scroll', setScrollPosition);
+      }
+    });
   };
 
   return {
