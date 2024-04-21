@@ -163,13 +163,18 @@ export default [
         exact: true,
       },
       {
-        path: '/smashEgg',
-        component: '@/pages/smashEgg',
+        path: '/smashEggH5',
+        component: '@/pages/smashEggH5',
         exact: true,
       },
       {
-        path: '/modalScrollInIOS',
-        component: '@/pages/modalScrollInIOS',
+        path: '/modalScrollInIOSH5',
+        component: '@/pages/modalScrollInIOSH5',
+        exact: true,
+      },
+      {
+        path: '/scrollListH5',
+        component: '@/pages/scrollListH5',
         exact: true,
       },
     ],

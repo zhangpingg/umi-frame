@@ -11,6 +11,7 @@ declare module 'react-grid-layout';
 declare module 'crypto-js';
 declare module 'react-activation';
 declare module '@lucky-canvas/react';
+declare module 'react-infinite-scroll-component';
 declare module '*.svg' {
   export function ReactComponent(
     props: React.SVGProps<SVGSVGElement>,
