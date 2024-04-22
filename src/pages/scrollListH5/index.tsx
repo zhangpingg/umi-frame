@@ -19,14 +19,15 @@ const Index = () => {
   // 获取-数据
   const getData = async (index: any) => {
     const res: any = await resDataAPI();
-    console.log(index, res.pages);
+    if (Number(index) === Number(res.pages)) {
+      setHasMore(false);
+    } else if (Number(index) < Number(res.pages)) {
+      setHasMore(true);
+    }
     if (index === 1) {
       setList(res.list);
-    } else if (Number(index) < Number(res.pages)) {
+    } else if (Number(index) <= Number(res.pages)) {
       setList([...list, ...res.list]);
-    } else if (Number(index) === Number(res.pages)) {
-      setList([...list, ...res.list]);
-      setHasMore(false);
     }
   };
   // 下一页-滚动加载更多
@@ -36,15 +37,11 @@ const Index = () => {
   };
   // 切换tab
   const changeTab = (type: string) => {
-    setHasMore(false);
     const boxDom: any = document.querySelector('.scrollContainer');
     boxDom.scrollTop = 0;
     setActiveTab(type);
     setCurrent(1);
     getData(1);
-    Promise.resolve().then(() => {
-      setHasMore(true);
-    });
   };
 
   useEffect(() => {
