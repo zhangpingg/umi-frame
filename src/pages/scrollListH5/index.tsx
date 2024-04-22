@@ -36,12 +36,15 @@ const Index = () => {
   };
   // 切换tab
   const changeTab = (type: string) => {
+    setHasMore(false);
     const boxDom: any = document.querySelector('.scrollContainer');
     boxDom.scrollTop = 0;
     setActiveTab(type);
     setCurrent(1);
-    setHasMore(true);
-    setList([...dataRes.list]);
+    getData(1);
+    Promise.resolve().then(() => {
+      setHasMore(true);
+    });
   };
 
   useEffect(() => {
