@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Upload, Button } from 'antd';
 import WxImageViewer from 'react-wx-images-viewer';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const token =
   'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMzYyMTgxNDAxNF9kdCIsInNjb3BlcyI6WyJob21lIl0sImlzcyI6InNlY3VyaXR5IiwiaWF0IjoxNzEzODYzMTQwLCJleHAiOjE3MTM4NzUxNDB9.R-aclI-sdK1qRrZpjm9j6t3IZSYw41xUtr8gfP6xO2KbXHIA7LK3DORwQOZDSR_dTZGvUPaEE843lSOIGyEWtQ';
@@ -79,6 +81,15 @@ const Index = () => {
       {isOpen && (
         <WxImageViewer onClose={onClose} urls={imgList} index={index} />
       )}
+      <hr />
+      <PhotoProvider>
+        <PhotoView src={imgList[0]}>
+          <img src={imgList[0]} style={{ width: '60px' }} />
+        </PhotoView>
+        <PhotoView src={imgList[1]}>
+          <img src={imgList[1]} style={{ width: '60px' }} />
+        </PhotoView>
+      </PhotoProvider>
     </div>
   );
 };
