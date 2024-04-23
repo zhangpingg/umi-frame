@@ -72,6 +72,7 @@
     "less-plugin-functions": "^1.0.0",
     "lint-staged": "^10.0.7",
     "prettier": "^2.2.0",
+    "react-wx-images-viewer": "^1.0.6",
     "thread-loader": "^3.0.4",
     "typescript": "^4.1.2",
     "yorkie": "^2.0.0"

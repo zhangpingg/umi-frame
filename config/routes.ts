@@ -118,6 +118,11 @@ export default [
         exact: true,
       },
       {
+        path: '/uploadDemoTwo',
+        component: '@/pages/uploadDemoTwo',
+        exact: true,
+      },
+      {
         path: '/sparkMD5Demo',
         component: '@/pages/sparkMD5Demo',
         exact: true,

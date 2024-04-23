@@ -101,6 +101,10 @@ const Home = () => {
         Upload 各种上传方式
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('uploadDemoTwo')}>
+        Upload 各种上传方式 two（更简单）
+      </Button>
+      <br />
       <Button type="link" onClick={() => jumpPage('sparkMD5Demo')}>
         spark-md5 计算文件内容的 hash
       </Button>

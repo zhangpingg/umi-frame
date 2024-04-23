@@ -12,4 +12,9 @@ export default {
     target: XONE_APP1_API,
     changeOrigin: true,
   },
+  '/apiUpload': {
+    target: 'http://px.zhilun-k8s.com',
+    changeOrigin: true,
+    pathRewrite: { '/apiUpload': '' },
+  },
 };
