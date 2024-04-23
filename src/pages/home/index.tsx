@@ -102,7 +102,7 @@ const Home = () => {
       </Button>
       <br />
       <Button type="link" onClick={() => jumpPage('uploadDemoTwo')}>
-        Upload 各种上传方式 two（更简单）
+        Upload 各种上传方式two，预览图片（更简单）
       </Button>
       <br />
       <Button type="link" onClick={() => jumpPage('sparkMD5Demo')}>
