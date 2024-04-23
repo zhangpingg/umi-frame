@@ -33,12 +33,20 @@ const useClearIosScroll = (props: any) => {
     );
     scrollDomList.map((dom: any) => {
       if (dom) {
-        // 初次打开弹框的时候，初始化数据，滚动条置为1
-        dom.style.overflow = 'scroll';
-        dom.scrollTop = 1;
-        dom.addEventListener('scroll', () => {
-          setScrollPosition(dom);
-        });
+        if (dom.scrollHeight > dom.clientHeight) {
+          // 初次打开弹框的时候，初始化数据，滚动条置为1
+          dom.style.overflow = 'scroll';
+          dom.scrollTop = 1;
+          dom.addEventListener('scroll', () => {
+            console.log(33);
+            setScrollPosition(dom);
+          });
+        } else {
+          const bodyDom = document.querySelector('body');
+          if (bodyDom) {
+            bodyDom.style.overflow = 'hidden';
+          }
+        }
       }
     });
   };
@@ -59,7 +67,14 @@ const useClearIosScroll = (props: any) => {
     );
     scrollDomList.map((dom: any) => {
       if (dom) {
-        dom.removeEventListener('scroll', setScrollPosition);
+        if (dom.scrollHeight > dom.clientHeight) {
+          dom.removeEventListener('scroll', setScrollPosition);
+        } else {
+          const bodyDom = document.querySelector('body');
+          if (bodyDom) {
+            bodyDom.style.overflow = 'auto';
+          }
+        }
       }
     });
   };
