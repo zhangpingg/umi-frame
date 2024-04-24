@@ -64,6 +64,7 @@ const Index = () => {
         <Button>上传照片</Button>
       </Upload>
       <hr />
+      <p>预览方式1：</p>
       <div>
         {imgList.map((item, index) => {
           return (
@@ -82,6 +83,7 @@ const Index = () => {
         <WxImageViewer onClose={onClose} urls={imgList} index={index} />
       )}
       <hr />
+      <p>预览方式2：好一些</p>
       <PhotoProvider>
         <PhotoView src={imgList[0]}>
           <img src={imgList[0]} style={{ width: '60px' }} />
