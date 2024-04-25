@@ -4,6 +4,7 @@ import WxImageViewer from 'react-wx-images-viewer';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 
+// 品牌商-测试环境
 const token =
   'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMzYyMTgxNDAxNF9kdCIsInNjb3BlcyI6WyJob21lIl0sImlzcyI6InNlY3VyaXR5IiwiaWF0IjoxNzEzODYzMTQwLCJleHAiOjE3MTM4NzUxNDB9.R-aclI-sdK1qRrZpjm9j6t3IZSYw41xUtr8gfP6xO2KbXHIA7LK3DORwQOZDSR_dTZGvUPaEE843lSOIGyEWtQ';
 
@@ -20,16 +21,29 @@ const Index = () => {
   const uploadProps1 = {
     name: 'file',
     accept: '.png,.jpg,.jpeg',
-    action: '/apiUpload/upload/fileUpload', // 测试环境
+    action: '/apiUpload/upload/fileUpload', // 品牌商-测试环境
     headers: {
       Authorization: token,
       'supplier-domain': 'dt',
     },
+    beforeUpload: (file: any) => {
+      if (imgList.length >= 9) {
+        console.log('最多上传9张照片');
+        return false;
+      }
+      if (file.size / 1024 / 1024 > 5) {
+        console.log('最大不能超过2MB');
+        return false;
+      }
+    },
     onChange(res: any) {
-      console.log(11, res);
       switch (res.file.status) {
+        case 'uploading':
+          console.log('loading开始');
+          break;
         case 'done':
           setImgList([...imgList, res.file.response.data]);
+          console.log('loading结束');
           break;
         case 'error':
           console.log('失败: ', res.file);
