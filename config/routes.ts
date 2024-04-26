@@ -182,6 +182,11 @@ export default [
         component: '@/pages/scrollListH5',
         exact: true,
       },
+      {
+        path: '/compressImg',
+        component: '@/pages/compressImg',
+        exact: true,
+      },
     ],
   },
 ];

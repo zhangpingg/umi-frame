@@ -153,6 +153,10 @@ const Home = () => {
         无线滚动【H5移动端】
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('compressImg')}>
+        压缩图片
+      </Button>
+      <br />
     </div>
   );
 };
