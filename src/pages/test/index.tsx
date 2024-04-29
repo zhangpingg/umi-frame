@@ -1,22 +1,54 @@
-import { PhotoProvider, PhotoView } from 'react-photo-view';
-import 'react-photo-view/dist/react-photo-view.css';
-
-const imgList = [
-  'https://gw.alipayobjects.com/zos/antfincdn/LlvErxo8H9/photo-1503185912284-5271ff81b9a8.webp',
-  'https://gw.alipayobjects.com/zos/antfincdn/cV16ZqzMjW/photo-1473091540282-9b846e7965e3.webp',
-  'https://gw.alipayobjects.com/zos/antfincdn/x43I27A55%26/photo-1438109491414-7198515b166b.webp',
-];
+import { useEffect } from 'react';
+import { Downloader, Parser, Player } from 'svga.lite';
 
 const Index = () => {
+  const init = async () => {
+    const downloader = new Downloader();
+    // 默认调用 WebWorker 线程解析
+    // 可配置 new Parser({ disableWorker: true }) 禁止
+    const parser = new Parser();
+    // #canvas 是 HTMLCanvasElement
+    const player = new Player('#canvas');
+
+    const fileData = await downloader.get('@/images/02.svga');
+    const svgaData = await parser.do(fileData);
+
+    player.set({
+      loop: 1,
+      cacheFrames: false,
+      intersectionObserverRender: false,
+    });
+
+    await player.mount(svgaData);
+
+    //player
+    //  // 开始动画事件回调
+    //  .$on('start', () => console.log('event start'))
+    //  // 暂停动画事件回调
+    //  .$on('pause', () => console.log('event pause'))
+    //  // 继续播放动画事件回调
+    //  .$on('resume', () => console.log('event resume'))
+    //  // 停止动画事件回调
+    //  .$on('stop', () => console.log('event stop'))
+    //  // 动画结束事件回调
+    //  .$on('end', () => console.log('event end'))
+    //  // 清空动画事件回调
+    //  .$on('clear', () => console.log('event clear'))
+    //  // 动画播放中事件回调
+    //  .$on('process', () => console.log('event process', player.progress));
+
+    // 开始播放动画
+    player.start();
+  };
+
+  useEffect(() => {
+    init();
+  }, []);
+
   return (
-    <PhotoProvider>
-      <PhotoView src={imgList[0]}>
-        <img src={imgList[0]} style={{ width: '60px' }} />
-      </PhotoView>
-      <PhotoView src={imgList[1]}>
-        <img src={imgList[1]} style={{ width: '60px' }} />
-      </PhotoView>
-    </PhotoProvider>
+    <div>
+      <canvas id="canvas"></canvas>
+    </div>
   );
 };
 
