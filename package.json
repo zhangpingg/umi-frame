@@ -26,6 +26,7 @@
     "@ant-design/pro-layout": "^6.5.0",
     "@antv/g2plot": "^2.4.25",
     "@lucky-canvas/react": "^0.1.13",
+    "@mrtujiawei/utils": "^2.5.48",
     "@reduxjs/toolkit": "^1.8.6",
     "@types/lodash": "^4.14.194",
     "@types/react-grid-layout": "^1.3.2",

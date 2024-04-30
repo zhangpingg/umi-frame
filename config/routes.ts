@@ -187,6 +187,11 @@ export default [
         component: '@/pages/compressImg',
         exact: true,
       },
+      {
+        path: '/svgaDemo',
+        component: '@/pages/svgaDemo',
+        exact: true,
+      },
     ],
   },
 ];

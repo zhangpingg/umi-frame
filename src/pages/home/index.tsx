@@ -157,6 +157,10 @@ const Home = () => {
         压缩图片
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('svgaDemo')}>
+        播放SVGA格式动画
+      </Button>
+      <br />
     </div>
   );
 };
