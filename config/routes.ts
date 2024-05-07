@@ -192,6 +192,11 @@ export default [
         component: '@/pages/svgaDemo',
         exact: true,
       },
+      {
+        path: '/stickyDemo',
+        component: '@/pages/stickyDemo',
+        exact: true,
+      },
     ],
   },
 ];

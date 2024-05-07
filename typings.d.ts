@@ -15,6 +15,7 @@ declare module 'react-infinite-scroll-component';
 declare module 'react-wx-images-viewer';
 declare module 'svga.lite/db';
 declare module '@mrtujiawei/utils';
+declare module 'react-sticky';
 declare module '*.svg' {
   export function ReactComponent(
     props: React.SVGProps<SVGSVGElement>,

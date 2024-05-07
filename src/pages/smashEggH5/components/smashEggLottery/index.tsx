@@ -6,7 +6,7 @@ import {
   useImperativeHandle,
 } from 'react';
 import { Row, Col } from 'antd';
-import { Toast } from 'antd-mobile';
+//import { Toast } from 'antd-mobile';
 import cn from 'classnames';
 import egg from '@/images/smashEgg/egg.png';
 import smashedEgg from '@/images/smashEgg/smashedEgg.png';
@@ -92,11 +92,11 @@ const Index = forwardRef((props: IndexProps, ref: any) => {
       return;
     }
     if (!tipShowListRef.current.includes(index)) {
-      Toast.info('金蛋已砸开');
+      //Toast.info('金蛋已砸开');
       return;
     }
     if (eggList.filter((item) => item.isSmashed).length >= chanceNum) {
-      Toast.info('砸蛋机会已用完');
+      //Toast.info('砸蛋机会已用完');
       return;
     }
     setSmashIndex(index);

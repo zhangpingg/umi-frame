@@ -161,6 +161,10 @@ const Home = () => {
         播放SVGA格式动画
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('stickyDemo')}>
+        粘性布局-如粘性导航栏，侧边栏等
+      </Button>
+      <br />
     </div>
   );
 };
