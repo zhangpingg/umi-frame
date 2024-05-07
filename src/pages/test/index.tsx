@@ -1,19 +1,29 @@
-import { StickyContainer, Sticky } from 'react-sticky';
+import React, { useState } from 'react';
+import cn from 'classnames';
+import styles from './index.module.less';
 
 const Index = () => {
+  const [isMove, setIsMove] = useState(false);
+
+  const fn1 = () => {
+    setIsMove(true);
+    setTimeout(() => {
+      setIsMove(false);
+    }, 1000);
+  };
+
   return (
-    <div style={{ width: '400px', border: '1px solid #000' }}>
-      <StickyContainer>
-        <Sticky>
-          {(props: any) => (
-            <div style={props.style}>
-              <h1>粘性头部</h1>
-            </div>
-          )}
-        </Sticky>
-        <div style={{ height: '800px', overflow: 'auto' }}>页面内容</div>
-      </StickyContainer>
-    </div>
+    <React.Fragment>
+      <div
+        className={cn({
+          [`${styles['box-slider']}`]: true,
+          [`${styles['box-sliderMove']}`]: isMove,
+        })}
+      ></div>
+      <button className={styles['btn']} onClick={fn1}>
+        动画
+      </button>
+    </React.Fragment>
   );
 };
 

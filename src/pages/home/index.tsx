@@ -165,6 +165,10 @@ const Home = () => {
         粘性布局-如粘性导航栏，侧边栏等
       </Button>
       <br />
+      <Button type="link" onClick={() => jumpPage('curveAnimation')}>
+        两固定点之间-实现曲线运动
+      </Button>
+      <br />
     </div>
   );
 };

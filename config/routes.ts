@@ -197,6 +197,11 @@ export default [
         component: '@/pages/stickyDemo',
         exact: true,
       },
+      {
+        path: '/curveAnimation',
+        component: '@/pages/curveAnimation',
+        exact: true,
+      },
     ],
   },
 ];
