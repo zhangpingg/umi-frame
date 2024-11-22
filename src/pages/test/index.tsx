@@ -1,30 +1,22 @@
-import React, { useState } from 'react';
-import cn from 'classnames';
-import styles from './index.module.less';
+import { useEffect, useRef, useState } from 'react';
+import { Progress } from 'antd';
 
 const Index = () => {
-  const [isMove, setIsMove] = useState(false);
+    const fn1 = async () => {
+        const blob = new Blob(['abcde'], { type: 'text/plain' });
+        const subBlob = blob.slice(0, 3);
+        const subText = await subBlob.text();
+        //console.log(subText); // abc
+        const subArrBuf = await blob.arrayBuffer();
+        const stream = blob.stream();
+        console.log(stream); // abc
+    };
 
-  const fn1 = () => {
-    setIsMove(true);
-    setTimeout(() => {
-      setIsMove(false);
-    }, 1000);
-  };
+    useEffect(() => {
+        fn1();
+    }, []);
 
-  return (
-    <React.Fragment>
-      <div
-        className={cn({
-          [`${styles['box-slider']}`]: true,
-          [`${styles['box-sliderMove']}`]: isMove,
-        })}
-      ></div>
-      <button className={styles['btn']} onClick={fn1}>
-        动画
-      </button>
-    </React.Fragment>
-  );
+    return <div>test</div>;
 };
 
 export default Index;
