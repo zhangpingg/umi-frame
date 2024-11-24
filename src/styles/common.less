@@ -4,72 +4,98 @@
 
 html,
 body {
-  height: 100%;
-  li {
-    list-style: none;
-  }
+    height: 100%;
+    li {
+        list-style: none;
+    }
 }
 div,
 ul,
 li,
 p {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
 li {
-  list-style: none;
+    list-style: none;
 }
 ul {
-  list-style-type: none;
+    list-style-type: none;
 }
 .por {
-  position: relative;
+    position: relative;
 }
 .poa {
-  position: absolute;
+    position: absolute;
 }
 .tac {
-  text-align: center;
+    text-align: center;
 }
 .tar {
-  text-align: right;
+    text-align: right;
 }
 .w-100 {
-  width: 100%;
+    width: 100%;
 }
 .dn {
-  display: none;
+    display: none;
 }
 
-// margin, padding, font-size
-.setMarPadFontSize( @i:0, @n:30,) when(@i<@n) {
-  .pt-@{i} {
-    padding-top: unit(@i, px);
-  }
-  .pr-@{i} {
-    padding-right: unit(@i, px);
-  }
-  .pb-@{i} {
-    padding-bottom: unit(@i, px);
-  }
-  .pl-@{i} {
-    padding-left: unit(@i, px);
-  }
-  .mt-@{i} {
-    margin-top: unit(@i, px);
-  }
-  .mr-@{i} {
-    margin-right: unit(@i, px);
-  }
-  .mb-@{i} {
-    margin-bottom: unit(@i, px);
-  }
-  .ml-@{i} {
-    margin-left: unit(@i, px);
-  }
-  .fs-@{i} {
-    font-size: unit(@i, px);
-  }
-  .setMarPadFontSize((@i+1), @n);
+// margin, padding, font-size, height, line-height
+.setMarPadFontSizeHeiLineHei( @i:0, @n:100,) when(@i<=@n) {
+    .pt-@{i} {
+        padding-top: unit(@i, px);
+    }
+    .pr-@{i} {
+        padding-right: unit(@i, px);
+    }
+    .pb-@{i} {
+        padding-bottom: unit(@i, px);
+    }
+    .pl-@{i} {
+        padding-left: unit(@i, px);
+    }
+    .mt-@{i} {
+        margin-top: unit(@i, px);
+    }
+    .mr-@{i} {
+        margin-right: unit(@i, px);
+    }
+    .mb-@{i} {
+        margin-bottom: unit(@i, px);
+    }
+    .ml-@{i} {
+        margin-left: unit(@i, px);
+    }
+    .fs-@{i} {
+        font-size: unit(@i, px);
+    }
+    .h-@{i} {
+        height: unit(@i, px);
+    }
+    .lh-@{i} {
+        line-height: unit(@i, px);
+    }
+    .setMarPadFontSizeHeiLineHei((@i+1), @n);
 }
-.setMarPadFontSize();
+.setMarPadFontSizeHeiLineHei();
+
+// 省略号
+.ellipsis-1 {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.setEllipsisMultiple( @i:2, @n:5,) when(@i<=@n) {
+    .ellipsis-@{i} {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: unit(@i);
+        -webkit-box-orient: vertical;
+    }
+    .setEllipsisMultiple((@i+1), @n);
+}
+.setEllipsisMultiple();
